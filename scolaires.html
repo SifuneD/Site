@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scolaires — Cinéma Alhambra Calais</title>
+    <meta name="description" content="Séances scolaires et dispositifs d'éducation au cinéma : École et cinéma, Collège au cinéma, Lycéens et apprentis au cinéma.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="film-grain"></div>
+
+    <header class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="34" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="34" r="3" fill="currentColor" opacity="0.6"/><rect x="18" y="14" width="12" height="20" rx="1" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="logo-text"><span class="logo-name">Alhambra</span><span class="logo-sub">Cinéma Calais</span></div>
+            </a>
+            <nav class="nav-links">
+                <a href="a-laffiche.html" class="nav-link">À l'affiche</a>
+                <a href="horaires.html" class="nav-link">Horaires</a>
+                <a href="prochainement.html" class="nav-link">Prochainement</a>
+                <a href="le-cinema.html" class="nav-link">Le cinéma</a>
+                <a href="infos-pratiques.html" class="nav-link">Infos pratiques</a>
+                <a href="scolaires.html" class="nav-link active">Scolaires</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <nav class="mobile-nav-links">
+            <a href="a-laffiche.html" class="mobile-nav-link">À l'affiche</a>
+            <a href="horaires.html" class="mobile-nav-link">Horaires</a>
+            <a href="prochainement.html" class="mobile-nav-link">Prochainement</a>
+            <a href="le-cinema.html" class="mobile-nav-link">Le cinéma</a>
+            <a href="infos-pratiques.html" class="mobile-nav-link">Infos pratiques</a>
+            <a href="scolaires.html" class="mobile-nav-link">Scolaires</a>
+        </nav>
+    </div>
+
+    <section class="page-header">
+        <div class="container">
+            <span class="section-tag">Éducation à l'image</span>
+            <h1>Scolaires & Centres de loisirs</h1>
+            <p>Découvrir le cinéma autrement avec vos élèves.</p>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="section">
+        <div class="container">
+            <div class="content-block reveal">
+                <div>
+                    <h2>Le cinéma, <span class="text-accent">outil pédagogique</span></h2>
+                    <p>Le Cinéma Alhambra, labellisé <strong>Jeune Public</strong> par le CNC, s'engage depuis de nombreuses années dans l'éducation à l'image et la sensibilisation des jeunes spectateurs au 7e art.</p>
+                    <p>Nous accueillons tout au long de l'année les écoles, collèges, lycées et centres de loisirs pour des séances dédiées. Les films sont projetés en conditions professionnelles, dans nos 3 salles de cinéma.</p>
+                    <p><strong>Tarif séance scolaire :</strong> 5&euro; par élève (groupe de 20 minimum).</p>
+                </div>
+                <div class="content-visual">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    <span>Éducation à l'image</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dispositifs -->
+    <section class="section section-films">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Dispositifs nationaux</span>
+                <h2 class="section-title">Nos programmes</h2>
+                <p class="section-desc">Trois dispositifs d'éducation au cinéma soutenus par le CNC et l'Éducation nationale.</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card reveal">
+                    <span class="program-level">Primaire</span>
+                    <h3>École et cinéma</h3>
+                    <p>Dispositif national d'éducation artistique au cinéma à l'école primaire. Les élèves découvrent 3 films par an en salle, accompagnés de ressources pédagogiques. Les enseignants bénéficient d'une formation préalable et de documents d'accompagnement.</p>
+                </div>
+                <div class="program-card reveal">
+                    <span class="program-level">Collège</span>
+                    <h3>Collège au cinéma</h3>
+                    <p>Ce dispositif permet aux collégiens de découvrir des œuvres cinématographiques lors de projections organisées spécialement à leur intention. 3 films par an sont programmés, choisis parmi un catalogue national de films patrimoniaux et contemporains.</p>
+                </div>
+                <div class="program-card reveal">
+                    <span class="program-level">Lycée</span>
+                    <h3>Lycéens et apprentis au cinéma</h3>
+                    <p>Ce dispositif régional d'éducation à l'image s'adresse aux élèves de lycée et aux apprentis. Il propose la découverte de 3 films en salle au cours de l'année scolaire, accompagnés de documents pédagogiques et d'interventions de professionnels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Centres de loisirs -->
+    <section class="section">
+        <div class="container">
+            <div class="content-block reverse reveal">
+                <div>
+                    <h2>Centres de <span class="text-accent">loisirs</span></h2>
+                    <p>Nous accueillons également les centres de loisirs et structures socio-éducatives pour des séances privées ou en séance publique à tarif préférentiel.</p>
+                    <p>Nous pouvons adapter notre programmation à vos besoins et à l'âge de votre public. N'hésitez pas à nous contacter pour organiser une sortie cinéma.</p>
+                    <p><strong>Contact :</strong> 03 21 17 73 33 ou contact@cinema-alhambra.org</p>
+                    <a href="infos-pratiques.html" class="btn btn-outline" style="margin-top: 16px;">
+                        Voir les tarifs
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+                <div class="content-visual">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>Centres de loisirs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><div class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="34" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="34" r="3" fill="currentColor" opacity="0.6"/><rect x="18" y="14" width="12" height="20" rx="1" stroke="currentColor" stroke-width="2"/></svg></div><div class="logo-text"><span class="logo-name">Alhambra</span><span class="logo-sub">Cinéma Calais</span></div></a>
+                    <p class="footer-desc">Cinéma de centre-ville classé Art et Essai.</p>
+                </div>
+                <div class="footer-links-group"><h4>Programmation</h4><ul><li><a href="a-laffiche.html">À l'affiche</a></li><li><a href="horaires.html">Horaires des séances</a></li><li><a href="prochainement.html">Prochainement</a></li></ul></div>
+                <div class="footer-links-group"><h4>Le cinéma</h4><ul><li><a href="le-cinema.html">À propos</a></li><li><a href="infos-pratiques.html">Infos pratiques</a></li><li><a href="scolaires.html">Écoles & centres de loisirs</a></li></ul></div>
+                <div class="footer-links-group"><h4>Contact</h4><ul><li>2 rue Jean Jaurès, 62100 Calais</li><li><a href="tel:+33321177333">03 21 17 73 33</a></li><li><a href="mailto:contact@cinema-alhambra.org">contact@cinema-alhambra.org</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Cinéma Alhambra Calais. Tous droits réservés.</p><div class="footer-partners"><span>Membre de</span><a href="https://www.europa-cinemas.org/" target="_blank" rel="noopener noreferrer">Europa Cinémas</a><span>&bull;</span><a href="https://www.delasuitedanslesimages.org/" target="_blank" rel="noopener noreferrer">De la suite dans les images</a></div></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

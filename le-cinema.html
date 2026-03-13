@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le cinéma — Cinéma Alhambra Calais</title>
+    <meta name="description" content="Découvrez le Cinéma Alhambra, cinéma Art et Essai de centre-ville à Calais. 3 salles, labels Recherche, Patrimoine et Jeune Public.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="film-grain"></div>
+
+    <header class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="34" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="34" r="3" fill="currentColor" opacity="0.6"/><rect x="18" y="14" width="12" height="20" rx="1" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="logo-text"><span class="logo-name">Alhambra</span><span class="logo-sub">Cinéma Calais</span></div>
+            </a>
+            <nav class="nav-links">
+                <a href="a-laffiche.html" class="nav-link">À l'affiche</a>
+                <a href="horaires.html" class="nav-link">Horaires</a>
+                <a href="prochainement.html" class="nav-link">Prochainement</a>
+                <a href="le-cinema.html" class="nav-link active">Le cinéma</a>
+                <a href="infos-pratiques.html" class="nav-link">Infos pratiques</a>
+                <a href="scolaires.html" class="nav-link">Scolaires</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <nav class="mobile-nav-links">
+            <a href="a-laffiche.html" class="mobile-nav-link">À l'affiche</a>
+            <a href="horaires.html" class="mobile-nav-link">Horaires</a>
+            <a href="prochainement.html" class="mobile-nav-link">Prochainement</a>
+            <a href="le-cinema.html" class="mobile-nav-link">Le cinéma</a>
+            <a href="infos-pratiques.html" class="mobile-nav-link">Infos pratiques</a>
+            <a href="scolaires.html" class="mobile-nav-link">Scolaires</a>
+        </nav>
+    </div>
+
+    <section class="page-header">
+        <div class="container">
+            <span class="section-tag">Notre histoire</span>
+            <h1>Le Cinéma <span class="text-accent">Alhambra</span></h1>
+            <p>LE cinéma de Calais. De proximité. De qualité.</p>
+        </div>
+    </section>
+
+    <!-- Présentation -->
+    <section class="section">
+        <div class="container">
+            <div class="content-block reveal">
+                <div>
+                    <h2>Un cinéma <span class="text-accent">Art et Essai</span></h2>
+                    <p>Le Cinéma Alhambra est un cinéma de centre-ville situé au 2 rue Jean Jaurès à Calais. Classé <strong>Art et Essai</strong>, il dispose de trois labels décernés par le Centre National du Cinéma :</p>
+                    <p><strong>Recherche et Découverte</strong> — pour notre programmation tournée vers les cinématographies peu diffusées et les premiers films.</p>
+                    <p><strong>Patrimoine et Répertoire</strong> — pour la mise en valeur de l'histoire du cinéma et des grandes œuvres du patrimoine.</p>
+                    <p><strong>Jeune Public</strong> — pour notre engagement en faveur de la sensibilisation des jeunes spectateurs au cinéma.</p>
+                </div>
+                <div class="content-visual">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M2 12h4m12 0h4M12 2v4m0 12v4"/></svg>
+                    <span>Façade du Cinéma Alhambra</span>
+                </div>
+            </div>
+
+            <div class="content-block reverse reveal">
+                <div>
+                    <h2>Nos <span class="text-accent">3 salles</span></h2>
+                    <p>L'Alhambra dispose de 3 salles de projection, dont 2 accessibles aux personnes à mobilité réduite. Nos salles sont équipées en projection numérique pour vous offrir la meilleure qualité d'image et de son.</p>
+                    <p>Nous programmons chaque semaine entre 4 et 6 films, avec des séances du mercredi au mardi. Les horaires sont mis à jour chaque lundi.</p>
+                </div>
+                <div class="content-visual">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 20l5-3 5 3"/><path d="M2 8h20"/></svg>
+                    <span>Salle de projection</span>
+                </div>
+            </div>
+
+            <div class="content-block reveal">
+                <div>
+                    <h2>Nos <span class="text-accent">réseaux</span></h2>
+                    <p>Le Cinéma Alhambra est membre du réseau <strong>Europa Cinémas</strong>, le premier réseau de salles de cinéma soutenu par l'Union Européenne dédié à la diffusion de films européens.</p>
+                    <p>Nous sommes également membre de l'association <strong>De la suite dans les images</strong>, réseau régional de cinémas du Nord-Pas-de-Calais œuvrant pour la diversité culturelle et l'éducation à l'image.</p>
+                    <p>Enfin, nous participons activement aux dispositifs nationaux d'éducation au cinéma : <strong>École et cinéma</strong>, <strong>Collège au cinéma</strong> et <strong>Lycéens et apprentis au cinéma</strong>.</p>
+                </div>
+                <div class="content-visual">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span>Europa Cinémas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section section-about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">En chiffres</span>
+                <h2 class="section-title">L'Alhambra en bref</h2>
+            </div>
+            <div class="about-stats" style="max-width: 600px; margin: 0 auto;">
+                <div class="stat-item"><span class="stat-number">3</span><span class="stat-label">Salles</span></div>
+                <div class="stat-item"><span class="stat-number">Art</span><span class="stat-label">& Essai</span></div>
+                <div class="stat-item"><span class="stat-number">3</span><span class="stat-label">Labels CNC</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><div class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="34" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="34" r="3" fill="currentColor" opacity="0.6"/><rect x="18" y="14" width="12" height="20" rx="1" stroke="currentColor" stroke-width="2"/></svg></div><div class="logo-text"><span class="logo-name">Alhambra</span><span class="logo-sub">Cinéma Calais</span></div></a>
+                    <p class="footer-desc">Cinéma de centre-ville classé Art et Essai.</p>
+                </div>
+                <div class="footer-links-group"><h4>Programmation</h4><ul><li><a href="a-laffiche.html">À l'affiche</a></li><li><a href="horaires.html">Horaires des séances</a></li><li><a href="prochainement.html">Prochainement</a></li></ul></div>
+                <div class="footer-links-group"><h4>Le cinéma</h4><ul><li><a href="le-cinema.html">À propos</a></li><li><a href="infos-pratiques.html">Infos pratiques</a></li><li><a href="scolaires.html">Écoles & centres de loisirs</a></li></ul></div>
+                <div class="footer-links-group"><h4>Contact</h4><ul><li>2 rue Jean Jaurès, 62100 Calais</li><li><a href="tel:+33321177333">03 21 17 73 33</a></li><li><a href="mailto:contact@cinema-alhambra.org">contact@cinema-alhambra.org</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Cinéma Alhambra Calais. Tous droits réservés.</p><div class="footer-partners"><span>Membre de</span><a href="https://www.europa-cinemas.org/" target="_blank" rel="noopener noreferrer">Europa Cinémas</a><span>&bull;</span><a href="https://www.delasuitedanslesimages.org/" target="_blank" rel="noopener noreferrer">De la suite dans les images</a></div></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
