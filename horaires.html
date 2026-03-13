@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horaires des séances — Cinéma Alhambra Calais</title>
+    <meta name="description" content="Horaires des séances de la semaine au Cinéma Alhambra de Calais.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="film-grain"></div>
+
+    <header class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="34" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="34" r="3" fill="currentColor" opacity="0.6"/><rect x="18" y="14" width="12" height="20" rx="1" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="logo-text"><span class="logo-name">Alhambra</span><span class="logo-sub">Cinéma Calais</span></div>
+            </a>
+            <nav class="nav-links">
+                <a href="a-laffiche.html" class="nav-link">À l'affiche</a>
+                <a href="horaires.html" class="nav-link active">Horaires</a>
+                <a href="prochainement.html" class="nav-link">Prochainement</a>
+                <a href="le-cinema.html" class="nav-link">Le cinéma</a>
+                <a href="infos-pratiques.html" class="nav-link">Infos pratiques</a>
+                <a href="scolaires.html" class="nav-link">Scolaires</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <nav class="mobile-nav-links">
+            <a href="a-laffiche.html" class="mobile-nav-link">À l'affiche</a>
+            <a href="horaires.html" class="mobile-nav-link">Horaires</a>
+            <a href="prochainement.html" class="mobile-nav-link">Prochainement</a>
+            <a href="le-cinema.html" class="mobile-nav-link">Le cinéma</a>
+            <a href="infos-pratiques.html" class="mobile-nav-link">Infos pratiques</a>
+            <a href="scolaires.html" class="mobile-nav-link">Scolaires</a>
+        </nav>
+    </div>
+
+    <section class="page-header">
+        <div class="container">
+            <span class="section-tag">Semaine du 12 au 18 mars 2026</span>
+            <h1>Horaires des séances</h1>
+            <p>Retrouvez les horaires de tous les films de la semaine.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="horaires-grid">
+
+                <!-- Alter Ego -->
+                <div class="horaire-film reveal">
+                    <div class="horaire-film-header">
+                        <div>
+                            <h3>Alter Ego <span class="film-badge vf">VF</span></h3>
+                            <p class="film-meta">Comédie, Thriller &bull; 1h39 &bull; De Nicolas Charlet, Bruno Lavaine</p>
+                        </div>
+                    </div>
+                    <div class="horaire-days">
+                        <div class="horaire-day"><span class="horaire-day-name">Mer</span><span class="horaire-day-date">12/03</span><span class="horaire-time">14:00</span><span class="horaire-time">20:30</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Jeu</span><span class="horaire-day-date">13/03</span><span class="horaire-time">18:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Ven</span><span class="horaire-day-date">14/03</span><span class="horaire-time">20:30</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Sam</span><span class="horaire-day-date">15/03</span><span class="horaire-time">16:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Dim</span><span class="horaire-day-date">16/03</span><span class="horaire-time">17:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Lun</span><span class="horaire-day-date">17/03</span><span class="horaire-no-seance">—</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Mar</span><span class="horaire-day-date">18/03</span><span class="horaire-time">20:30</span></div>
+                    </div>
+                </div>
+
+                <!-- The Mastermind -->
+                <div class="horaire-film reveal">
+                    <div class="horaire-film-header">
+                        <div>
+                            <h3>The Mastermind <span class="film-badge vost">VOST</span></h3>
+                            <p class="film-meta">Policier, Drame &bull; 1h50 &bull; De Kelly Reichardt</p>
+                        </div>
+                    </div>
+                    <div class="horaire-days">
+                        <div class="horaire-day"><span class="horaire-day-name">Mer</span><span class="horaire-day-date">12/03</span><span class="horaire-time">18:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Jeu</span><span class="horaire-day-date">13/03</span><span class="horaire-time">20:30</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Ven</span><span class="horaire-day-date">14/03</span><span class="horaire-no-seance">—</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Sam</span><span class="horaire-day-date">15/03</span><span class="horaire-time">20:30</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Dim</span><span class="horaire-day-date">16/03</span><span class="horaire-time">19:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Lun</span><span class="horaire-day-date">17/03</span><span class="horaire-time">18:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Mar</span><span class="horaire-day-date">18/03</span><span class="horaire-no-seance">—</span></div>
+                    </div>
+                </div>
+
+                <!-- L'Affaire Bojarski -->
+                <div class="horaire-film reveal">
+                    <div class="horaire-film-header">
+                        <div>
+                            <h3>L'Affaire Bojarski <span class="film-badge vf">VF</span></h3>
+                            <p class="film-meta">Drame, Policier &bull; 2h08 &bull; De Jean-Paul Salomé</p>
+                        </div>
+                    </div>
+                    <div class="horaire-days">
+                        <div class="horaire-day"><span class="horaire-day-name">Mer</span><span class="horaire-day-date">12/03</span><span class="horaire-time">16:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Jeu</span><span class="horaire-day-date">13/03</span><span class="horaire-no-seance">—</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Ven</span><span class="horaire-day-date">14/03</span><span class="horaire-time">18:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Sam</span><span class="horaire-day-date">15/03</span><span class="horaire-time">14:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Dim</span><span class="horaire-day-date">16/03</span><span class="horaire-no-seance">—</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Lun</span><span class="horaire-day-date">17/03</span><span class="horaire-no-seance">—</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Mar</span><span class="horaire-day-date">18/03</span><span class="horaire-time">20:30</span></div>
+                    </div>
+                </div>
+
+                <!-- Soundtrack to a Coup d'État -->
+                <div class="horaire-film reveal">
+                    <div class="horaire-film-header">
+                        <div>
+                            <h3>Soundtrack to a Coup d'État <span class="film-badge vost">VOST</span></h3>
+                            <p class="film-meta">Documentaire, Musique &bull; 2h30 &bull; De Johan Grimonprez</p>
+                        </div>
+                    </div>
+                    <div class="horaire-days">
+                        <div class="horaire-day"><span class="horaire-day-name">Mer</span><span class="horaire-day-date">12/03</span><span class="horaire-no-seance">—</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Jeu</span><span class="horaire-day-date">13/03</span><span class="horaire-time">14:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Ven</span><span class="horaire-day-date">14/03</span><span class="horaire-no-seance">—</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Sam</span><span class="horaire-day-date">15/03</span><span class="horaire-time">18:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Dim</span><span class="horaire-day-date">16/03</span><span class="horaire-time">14:00</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Lun</span><span class="horaire-day-date">17/03</span><span class="horaire-time">20:30</span></div>
+                        <div class="horaire-day"><span class="horaire-day-name">Mar</span><span class="horaire-day-date">18/03</span><span class="horaire-no-seance">—</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="34" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="34" r="3" fill="currentColor" opacity="0.6"/><rect x="18" y="14" width="12" height="20" rx="1" stroke="currentColor" stroke-width="2"/></svg></div>
+                        <div class="logo-text"><span class="logo-name">Alhambra</span><span class="logo-sub">Cinéma Calais</span></div>
+                    </a>
+                    <p class="footer-desc">Cinéma de centre-ville classé Art et Essai.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/alhambracalais/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+                        <a href="https://www.facebook.com/alhambracalais" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links-group"><h4>Programmation</h4><ul><li><a href="a-laffiche.html">À l'affiche</a></li><li><a href="horaires.html">Horaires des séances</a></li><li><a href="prochainement.html">Prochainement</a></li></ul></div>
+                <div class="footer-links-group"><h4>Le cinéma</h4><ul><li><a href="le-cinema.html">À propos</a></li><li><a href="infos-pratiques.html">Infos pratiques</a></li><li><a href="scolaires.html">Écoles & centres de loisirs</a></li></ul></div>
+                <div class="footer-links-group"><h4>Contact</h4><ul><li>2 rue Jean Jaurès</li><li>62100 Calais</li><li><a href="tel:+33321177333">03 21 17 73 33</a></li><li><a href="mailto:contact@cinema-alhambra.org">contact@cinema-alhambra.org</a></li></ul></div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cinéma Alhambra Calais. Tous droits réservés.</p>
+                <div class="footer-partners"><span>Membre de</span><a href="https://www.europa-cinemas.org/" target="_blank" rel="noopener noreferrer">Europa Cinémas</a><span>&bull;</span><a href="https://www.delasuitedanslesimages.org/" target="_blank" rel="noopener noreferrer">De la suite dans les images</a></div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

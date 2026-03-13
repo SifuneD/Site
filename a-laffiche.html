@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À l'affiche — Cinéma Alhambra Calais</title>
+    <meta name="description" content="Films actuellement à l'affiche au Cinéma Alhambra de Calais. Programmation Art et Essai.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="film-grain"></div>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="34" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="34" r="3" fill="currentColor" opacity="0.6"/><rect x="18" y="14" width="12" height="20" rx="1" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="logo-text"><span class="logo-name">Alhambra</span><span class="logo-sub">Cinéma Calais</span></div>
+            </a>
+            <nav class="nav-links">
+                <a href="a-laffiche.html" class="nav-link active">À l'affiche</a>
+                <a href="horaires.html" class="nav-link">Horaires</a>
+                <a href="prochainement.html" class="nav-link">Prochainement</a>
+                <a href="le-cinema.html" class="nav-link">Le cinéma</a>
+                <a href="infos-pratiques.html" class="nav-link">Infos pratiques</a>
+                <a href="scolaires.html" class="nav-link">Scolaires</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <nav class="mobile-nav-links">
+            <a href="a-laffiche.html" class="mobile-nav-link">À l'affiche</a>
+            <a href="horaires.html" class="mobile-nav-link">Horaires</a>
+            <a href="prochainement.html" class="mobile-nav-link">Prochainement</a>
+            <a href="le-cinema.html" class="mobile-nav-link">Le cinéma</a>
+            <a href="infos-pratiques.html" class="mobile-nav-link">Infos pratiques</a>
+            <a href="scolaires.html" class="mobile-nav-link">Scolaires</a>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <span class="section-tag">Programmation</span>
+            <h1>À l'affiche</h1>
+            <p>Les films actuellement projetés au Cinéma Alhambra.</p>
+        </div>
+    </section>
+
+    <!-- Films détaillés -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Alter Ego -->
+            <div class="film-detail reveal">
+                <div class="film-detail-poster">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M2 12h4m12 0h4M12 2v4m0 12v4"/></svg>
+                </div>
+                <div class="film-detail-content">
+                    <h2>Alter Ego</h2>
+                    <div class="film-detail-meta">
+                        <span>Comédie, Thriller</span>
+                        <span>&bull; 1h39</span>
+                        <span>&bull; De Nicolas Charlet, Bruno Lavaine</span>
+                        <span class="film-badge vf">VF</span>
+                    </div>
+                    <p class="film-detail-synopsis">Alex a un problème : son nouveau voisin est son sosie parfait. Avec des cheveux. Un double en mieux, qui va totalement bouleverser son existence. Avec Laurent Lafitte, Blanche Gardin, Olga Kurylenko, Marc Fraize et Zabou Breitman.</p>
+                    <div class="film-detail-seances">
+                        <h3>Séances cette semaine</h3>
+                        <div class="seance-tags">
+                            <div class="seance-tag"><span class="seance-day">Mer 12</span>14:00</div>
+                            <div class="seance-tag"><span class="seance-day">Mer 12</span>20:30</div>
+                            <div class="seance-tag"><span class="seance-day">Jeu 13</span>18:00</div>
+                            <div class="seance-tag"><span class="seance-day">Ven 14</span>20:30</div>
+                            <div class="seance-tag"><span class="seance-day">Sam 15</span>16:00</div>
+                            <div class="seance-tag"><span class="seance-day">Dim 16</span>17:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Mastermind -->
+            <div class="film-detail reveal">
+                <div class="film-detail-poster">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M2 12h4m12 0h4M12 2v4m0 12v4"/></svg>
+                </div>
+                <div class="film-detail-content">
+                    <h2>The Mastermind</h2>
+                    <div class="film-detail-meta">
+                        <span>Policier, Drame</span>
+                        <span>&bull; 1h50</span>
+                        <span>&bull; De Kelly Reichardt</span>
+                        <span class="film-badge vost">VOST</span>
+                    </div>
+                    <p class="film-detail-synopsis">Un thriller haletant qui explore les méandres du crime organisé, porté par une mise en scène d'une précision chirurgicale signée Kelly Reichardt.</p>
+                    <div class="film-detail-seances">
+                        <h3>Séances cette semaine</h3>
+                        <div class="seance-tags">
+                            <div class="seance-tag"><span class="seance-day">Mer 12</span>18:00</div>
+                            <div class="seance-tag"><span class="seance-day">Jeu 13</span>20:30</div>
+                            <div class="seance-tag"><span class="seance-day">Sam 15</span>20:30</div>
+                            <div class="seance-tag"><span class="seance-day">Dim 16</span>19:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- L'Affaire Bojarski -->
+            <div class="film-detail reveal">
+                <div class="film-detail-poster">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M2 12h4m12 0h4M12 2v4m0 12v4"/></svg>
+                </div>
+                <div class="film-detail-content">
+                    <h2>L'Affaire Bojarski</h2>
+                    <div class="film-detail-meta">
+                        <span>Drame, Policier</span>
+                        <span>&bull; 2h08</span>
+                        <span>&bull; De Jean-Paul Salomé</span>
+                        <span class="film-badge vf">VF</span>
+                    </div>
+                    <p class="film-detail-synopsis">Jean-Paul Salomé signe un film d'enquête captivant, plongeant dans les arcanes d'une affaire judiciaire qui a marqué l'histoire contemporaine.</p>
+                    <div class="film-detail-seances">
+                        <h3>Séances cette semaine</h3>
+                        <div class="seance-tags">
+                            <div class="seance-tag"><span class="seance-day">Mer 12</span>16:00</div>
+                            <div class="seance-tag"><span class="seance-day">Ven 14</span>18:00</div>
+                            <div class="seance-tag"><span class="seance-day">Sam 15</span>14:00</div>
+                            <div class="seance-tag"><span class="seance-day">Mar 18</span>20:30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soundtrack to a Coup d'État -->
+            <div class="film-detail reveal">
+                <div class="film-detail-poster">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M2 12h4m12 0h4M12 2v4m0 12v4"/></svg>
+                </div>
+                <div class="film-detail-content">
+                    <h2>Soundtrack to a Coup d'État</h2>
+                    <div class="film-detail-meta">
+                        <span>Documentaire, Musique</span>
+                        <span>&bull; 2h30</span>
+                        <span>&bull; De Johan Grimonprez</span>
+                        <span class="film-badge vost">VOST</span>
+                    </div>
+                    <p class="film-detail-synopsis">Jazz, politique et décolonisation s'entremêlent dans ce grand huit historique qui révèle un incroyable épisode de la guerre froide. Nommé à l'Oscar du meilleur documentaire 2025, ce film-essai éclaire les machinations politiques derrière l'assassinat du leader congolais Patrice Lumumba en 1961.</p>
+                    <div class="film-detail-seances">
+                        <h3>Séances cette semaine</h3>
+                        <div class="seance-tags">
+                            <div class="seance-tag"><span class="seance-day">Jeu 13</span>14:00</div>
+                            <div class="seance-tag"><span class="seance-day">Sam 15</span>18:00</div>
+                            <div class="seance-tag"><span class="seance-day">Dim 16</span>14:00</div>
+                            <div class="seance-tag"><span class="seance-day">Lun 17</span>20:30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="12" cy="34" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="14" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="24" r="3" fill="currentColor" opacity="0.6"/><circle cx="36" cy="34" r="3" fill="currentColor" opacity="0.6"/><rect x="18" y="14" width="12" height="20" rx="1" stroke="currentColor" stroke-width="2"/></svg></div>
+                        <div class="logo-text"><span class="logo-name">Alhambra</span><span class="logo-sub">Cinéma Calais</span></div>
+                    </a>
+                    <p class="footer-desc">Cinéma de centre-ville classé Art et Essai. Membre du réseau Europa Cinémas et de l'association De la suite dans les images.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/alhambracalais/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+                        <a href="https://www.facebook.com/alhambracalais" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links-group"><h4>Programmation</h4><ul><li><a href="a-laffiche.html">À l'affiche</a></li><li><a href="horaires.html">Horaires des séances</a></li><li><a href="prochainement.html">Prochainement</a></li></ul></div>
+                <div class="footer-links-group"><h4>Le cinéma</h4><ul><li><a href="le-cinema.html">À propos</a></li><li><a href="infos-pratiques.html">Infos pratiques</a></li><li><a href="scolaires.html">Écoles & centres de loisirs</a></li></ul></div>
+                <div class="footer-links-group"><h4>Contact</h4><ul><li>2 rue Jean Jaurès</li><li>62100 Calais</li><li><a href="tel:+33321177333">03 21 17 73 33</a></li><li><a href="mailto:contact@cinema-alhambra.org">contact@cinema-alhambra.org</a></li></ul></div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cinéma Alhambra Calais. Tous droits réservés.</p>
+                <div class="footer-partners"><span>Membre de</span><a href="https://www.europa-cinemas.org/" target="_blank" rel="noopener noreferrer">Europa Cinémas</a><span>&bull;</span><a href="https://www.delasuitedanslesimages.org/" target="_blank" rel="noopener noreferrer">De la suite dans les images</a></div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
