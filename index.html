@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinéma Alhambra — Cinéma de centre-ville à Calais</title>
+    <meta name="description" content="Cinéma Alhambra, LE cinéma de Calais. De proximité. De qualité. Art et Essai, labels Recherche, Patrimoine, Répertoire et Jeune Public.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cursor follower -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Film grain overlay -->
+    <div class="film-grain"></div>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="https://cinema-alhambra.org/" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                        <circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.6"/>
+                        <circle cx="12" cy="24" r="3" fill="currentColor" opacity="0.6"/>
+                        <circle cx="12" cy="34" r="3" fill="currentColor" opacity="0.6"/>
+                        <circle cx="36" cy="14" r="3" fill="currentColor" opacity="0.6"/>
+                        <circle cx="36" cy="24" r="3" fill="currentColor" opacity="0.6"/>
+                        <circle cx="36" cy="34" r="3" fill="currentColor" opacity="0.6"/>
+                        <rect x="18" y="14" width="12" height="20" rx="1" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">Alhambra</span>
+                    <span class="logo-sub">Cinéma Calais</span>
+                </div>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="https://cinema-alhambra.org/a-laffiche/" class="nav-link">À l'affiche</a>
+                <a href="https://cinema-alhambra.org/horaires-des-seances/" class="nav-link">Horaires</a>
+                <a href="https://cinema-alhambra.org/prochainement/" class="nav-link">Prochainement</a>
+                <a href="https://cinema-alhambra.org/le-cinema/" class="nav-link">Le cinéma</a>
+                <a href="https://cinema-alhambra.org/infos-pratiques/" class="nav-link">Infos pratiques</a>
+                <a href="https://cinema-alhambra.org/ecoles-centres-loisirs/" class="nav-link">Scolaires</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav" id="mobileNav">
+        <nav class="mobile-nav-links">
+            <a href="https://cinema-alhambra.org/a-laffiche/" class="mobile-nav-link">À l'affiche</a>
+            <a href="https://cinema-alhambra.org/horaires-des-seances/" class="mobile-nav-link">Horaires</a>
+            <a href="https://cinema-alhambra.org/prochainement/" class="mobile-nav-link">Prochainement</a>
+            <a href="https://cinema-alhambra.org/le-cinema/" class="mobile-nav-link">Le cinéma</a>
+            <a href="https://cinema-alhambra.org/infos-pratiques/" class="mobile-nav-link">Infos pratiques</a>
+            <a href="https://cinema-alhambra.org/ecoles-centres-loisirs/" class="mobile-nav-link">Scolaires</a>
+            <a href="https://cinema-alhambra.org/archives-films/" class="mobile-nav-link">Archives</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="film-strip film-strip-left"></div>
+            <div class="film-strip film-strip-right"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge reveal">
+                <span class="badge-dot"></span>
+                Art et Essai &mdash; Calais Centre-Ville
+            </div>
+            <h1 class="hero-title reveal">
+                <span class="title-line">LE cinéma</span>
+                <span class="title-line title-accent">de Calais</span>
+            </h1>
+            <p class="hero-subtitle reveal">
+                De proximité. De qualité.<br>
+                Recherche &bull; Patrimoine &bull; Répertoire &bull; Jeune Public
+            </p>
+            <div class="hero-actions reveal">
+                <a href="https://cinema-alhambra.org/a-laffiche/" class="btn btn-primary">
+                    <span>Voir le programme</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="https://cinema-alhambra.org/horaires-des-seances/" class="btn btn-secondary">
+                    <span>Horaires des séances</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Découvrir</span>
+        </div>
+    </section>
+
+    <!-- Now Showing Section -->
+    <section class="section section-films" id="films">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Cette semaine</span>
+                <h2 class="section-title">À l'affiche</h2>
+                <p class="section-desc">Découvrez notre sélection de films à l'affiche cette semaine au Cinéma Alhambra.</p>
+            </div>
+            <div class="films-grid">
+                <a href="https://cinema-alhambra.org/a-laffiche/" class="film-card reveal" style="--delay: 0">
+                    <div class="film-poster">
+                        <div class="film-poster-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M2 12h4m12 0h4M12 2v4m0 12v4"/></svg>
+                        </div>
+                        <div class="film-overlay">
+                            <span class="film-cta">Voir les séances</span>
+                        </div>
+                    </div>
+                    <div class="film-info">
+                        <h3 class="film-title">Film 1</h3>
+                        <p class="film-meta">Drame &bull; 2h15</p>
+                    </div>
+                </a>
+                <a href="https://cinema-alhambra.org/a-laffiche/" class="film-card reveal" style="--delay: 1">
+                    <div class="film-poster">
+                        <div class="film-poster-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M2 12h4m12 0h4M12 2v4m0 12v4"/></svg>
+                        </div>
+                        <div class="film-overlay">
+                            <span class="film-cta">Voir les séances</span>
+                        </div>
+                    </div>
+                    <div class="film-info">
+                        <h3 class="film-title">Film 2</h3>
+                        <p class="film-meta">Comédie &bull; 1h45</p>
+                    </div>
+                </a>
+                <a href="https://cinema-alhambra.org/a-laffiche/" class="film-card reveal" style="--delay: 2">
+                    <div class="film-poster">
+                        <div class="film-poster-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M2 12h4m12 0h4M12 2v4m0 12v4"/></svg>
+                        </div>
+                        <div class="film-overlay">
+                            <span class="film-cta">Voir les séances</span>
+                        </div>
+                    </div>
+                    <div class="film-info">
+                        <h3 class="film-title">Film 3</h3>
+                        <p class="film-meta">Animation &bull; 1h30</p>
+                    </div>
+                </a>
+                <a href="https://cinema-alhambra.org/a-laffiche/" class="film-card reveal" style="--delay: 3">
+                    <div class="film-poster">
+                        <div class="film-poster-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M2 12h4m12 0h4M12 2v4m0 12v4"/></svg>
+                        </div>
+                        <div class="film-overlay">
+                            <span class="film-cta">Voir les séances</span>
+                        </div>
+                    </div>
+                    <div class="film-info">
+                        <h3 class="film-title">Film 4</h3>
+                        <p class="film-meta">Documentaire &bull; 1h50</p>
+                    </div>
+                </a>
+            </div>
+            <div class="section-cta reveal">
+                <a href="https://cinema-alhambra.org/a-laffiche/" class="btn btn-outline">
+                    Toute la programmation
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="section section-coming" id="coming">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Bientôt</span>
+                <h2 class="section-title">Prochainement</h2>
+                <p class="section-desc">Les films qui arrivent bientôt sur nos écrans.</p>
+            </div>
+            <div class="coming-list">
+                <a href="https://cinema-alhambra.org/prochainement/" class="coming-item reveal">
+                    <div class="coming-date">
+                        <span class="coming-day">Bientôt</span>
+                    </div>
+                    <div class="coming-info">
+                        <h3>Découvrez les prochaines sorties</h3>
+                        <p>Consultez notre page Prochainement pour ne rien manquer des nouveautés à venir.</p>
+                    </div>
+                    <div class="coming-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                </a>
+            </div>
+            <div class="section-cta reveal">
+                <a href="https://cinema-alhambra.org/prochainement/" class="btn btn-outline">
+                    Voir tous les films à venir
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content reveal">
+                    <span class="section-tag">Notre histoire</span>
+                    <h2 class="section-title">Le Cinéma<br><span class="text-accent">Alhambra</span></h2>
+                    <p class="about-text">
+                        Situé au coeur de Calais, le Cinéma Alhambra est un cinéma de proximité classé
+                        <strong>Art et Essai</strong> avec les labels Recherche-Découverte, Patrimoine-Répertoire
+                        et Jeune Public. Membre du réseau <strong>Europa Cinémas</strong> et de l'association
+                        <strong>De la suite dans les images</strong>, nous vous proposons une programmation riche
+                        et diversifiée.
+                    </p>
+                    <div class="about-labels">
+                        <div class="label-item">
+                            <div class="label-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                            </div>
+                            <div>
+                                <strong>Recherche</strong>
+                                <span>Découverte</span>
+                            </div>
+                        </div>
+                        <div class="label-item">
+                            <div class="label-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            </div>
+                            <div>
+                                <strong>Patrimoine</strong>
+                                <span>Répertoire</span>
+                            </div>
+                        </div>
+                        <div class="label-item">
+                            <div class="label-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div>
+                                <strong>Jeune Public</strong>
+                                <span>Familles</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://cinema-alhambra.org/le-cinema/" class="btn btn-primary">
+                        <span>En savoir plus</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+                <div class="about-visual reveal">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-placeholder">
+                            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="100" height="80" rx="8" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                                <path d="M45 50 L75 65 L45 80Z" fill="currentColor" opacity="0.2"/>
+                                <circle cx="60" cy="65" r="25" stroke="currentColor" stroke-width="1.5" opacity="0.15" stroke-dasharray="4 4"/>
+                            </svg>
+                            <p>Cinéma Alhambra</p>
+                            <span>2 rue Jean Jaurès, Calais</span>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="2">0</span>
+                            <span class="stat-label">Salles</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Art</span>
+                            <span class="stat-label">& Essai</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Labels</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-services" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Nos services</span>
+                <h2 class="section-title">Plus qu'un cinéma</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal" style="--delay: 0">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3>Anniversaires</h3>
+                    <p>Les mercredis et samedis après-midi, organisez l'anniversaire de votre enfant au cinéma. Projection + goûter, 10&euro; par enfant.</p>
+                    <a href="https://cinema-alhambra.org/infos-pratiques/" class="service-link">
+                        En savoir plus
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+                <div class="service-card reveal" style="--delay: 1">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                    </div>
+                    <h3>Scolaires</h3>
+                    <p>Séances scolaires toute l'année. École et cinéma, Collège au cinéma, Lycéens et apprentis au cinéma. 5&euro; par élève.</p>
+                    <a href="https://cinema-alhambra.org/ecoles-centres-loisirs/" class="service-link">
+                        En savoir plus
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+                <div class="service-card reveal" style="--delay: 2">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                            <path d="M16 2v4M8 2v4M3 10h18"/>
+                        </svg>
+                    </div>
+                    <h3>Séances privées</h3>
+                    <p>Toute l'année, nous pouvons organiser des séances privées avec les films de notre catalogue.</p>
+                    <a href="https://cinema-alhambra.org/infos-pratiques/" class="service-link">
+                        En savoir plus
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+                <div class="service-card reveal" style="--delay: 3">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>Accessibilité</h3>
+                    <p>2 salles accessibles aux personnes à mobilité réduite. Navette gratuite Balad'In avec arrêt "Alhambra".</p>
+                    <a href="https://cinema-alhambra.org/infos-pratiques/" class="service-link">
+                        En savoir plus
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section section-newsletter" id="newsletter">
+        <div class="container">
+            <div class="newsletter-card reveal">
+                <div class="newsletter-content">
+                    <div class="newsletter-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="4" y="10" width="40" height="28" rx="4"/>
+                            <path d="M4 14l20 14 20-14"/>
+                        </svg>
+                    </div>
+                    <h2>Ne manquez rien</h2>
+                    <p>Recevez tous les lundis le programme de la semaine directement dans votre boîte mail.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Votre adresse email" class="newsletter-input" aria-label="Adresse email">
+                        <button class="btn btn-primary newsletter-btn">
+                            S'inscrire
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Info Section -->
+    <section class="section section-info" id="info">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Venir au cinéma</span>
+                <h2 class="section-title">Infos pratiques</h2>
+            </div>
+            <div class="info-grid">
+                <div class="info-card reveal">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Adresse</h3>
+                    <p>2 rue Jean Jaurès<br>62100 Calais</p>
+                    <span class="info-detail">Centre-ville, suivre Hôtel de Ville</span>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <h3>Téléphone</h3>
+                    <p>+33 (0)3 21 17 73 33</p>
+                    <span class="info-detail">Renseignements et réservations</span>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                    </div>
+                    <h3>Email</h3>
+                    <p>contact@cinema-alhambra.org</p>
+                    <span class="info-detail">Nous répondons sous 48h</span>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="1" y="4" width="22" height="16" rx="2"/>
+                            <path d="M1 10h22"/>
+                        </svg>
+                    </div>
+                    <h3>Tarifs & Cartes</h3>
+                    <p>Cartes d'abonnement disponibles</p>
+                    <a href="https://cinema-alhambra.org/infos-pratiques/" class="info-link">Voir les tarifs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="https://cinema-alhambra.org/" class="logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                                <circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.6"/>
+                                <circle cx="12" cy="24" r="3" fill="currentColor" opacity="0.6"/>
+                                <circle cx="12" cy="34" r="3" fill="currentColor" opacity="0.6"/>
+                                <circle cx="36" cy="14" r="3" fill="currentColor" opacity="0.6"/>
+                                <circle cx="36" cy="24" r="3" fill="currentColor" opacity="0.6"/>
+                                <circle cx="36" cy="34" r="3" fill="currentColor" opacity="0.6"/>
+                                <rect x="18" y="14" width="12" height="20" rx="1" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-name">Alhambra</span>
+                            <span class="logo-sub">Cinéma Calais</span>
+                        </div>
+                    </a>
+                    <p class="footer-desc">Cinéma de centre-ville classé Art et Essai. Membre du réseau Europa Cinémas et de l'association De la suite dans les images.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/alhambracalais/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/alhambracalais" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Programmation</h4>
+                    <ul>
+                        <li><a href="https://cinema-alhambra.org/a-laffiche/">À l'affiche</a></li>
+                        <li><a href="https://cinema-alhambra.org/horaires-des-seances/">Horaires des séances</a></li>
+                        <li><a href="https://cinema-alhambra.org/prochainement/">Prochainement</a></li>
+                        <li><a href="https://cinema-alhambra.org/archives-films/">Archives films</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Le cinéma</h4>
+                    <ul>
+                        <li><a href="https://cinema-alhambra.org/le-cinema/">À propos</a></li>
+                        <li><a href="https://cinema-alhambra.org/infos-pratiques/">Infos pratiques</a></li>
+                        <li><a href="https://cinema-alhambra.org/ecoles-centres-loisirs/">Écoles & centres de loisirs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>2 rue Jean Jaurès</li>
+                        <li>62100 Calais</li>
+                        <li><a href="tel:+33321177333">03 21 17 73 33</a></li>
+                        <li><a href="mailto:contact@cinema-alhambra.org">contact@cinema-alhambra.org</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cinéma Alhambra Calais. Tous droits réservés.</p>
+                <div class="footer-partners">
+                    <span>Membre de</span>
+                    <a href="https://www.europa-cinemas.org/" target="_blank" rel="noopener noreferrer">Europa Cinémas</a>
+                    <span>&bull;</span>
+                    <a href="https://www.delasuitedanslesimages.org/" target="_blank" rel="noopener noreferrer">De la suite dans les images</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
