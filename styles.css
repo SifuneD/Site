@@ -1570,3 +1570,138 @@ body:hover .cursor-glow {
     background-size: 200% 100%;
     animation: shimmer 3s ease-in-out infinite;
 }
+
+/* --- Stylized Film Poster Cards --- */
+.film-poster-styled {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 16px;
+    text-align: center;
+    overflow: hidden;
+}
+.film-poster-styled::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    z-index: 0;
+}
+.film-poster-styled::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    z-index: 1;
+}
+.film-poster-styled .poster-title {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+.film-poster-styled .poster-director {
+    position: relative;
+    z-index: 2;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+.film-poster-styled .poster-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    z-index: 1;
+    opacity: 0.08;
+    width: 80px;
+    height: 80px;
+    color: #fff;
+}
+
+/* Per-film gradient backgrounds */
+.poster-alter-ego::before {
+    background: linear-gradient(135deg, #1a1a2e, #c23636, #16213e);
+}
+.poster-mastermind::before {
+    background: linear-gradient(135deg, #0f3443, #34e89e, #0f3443);
+}
+.poster-bojarski::before {
+    background: linear-gradient(135deg, #2c3e50, #e74c3c, #3d5a80);
+}
+.poster-soundtrack::before {
+    background: linear-gradient(135deg, #1a1a2e, #e8a838, #0d0d1a);
+}
+
+/* Film detail page poster styling */
+.film-detail-poster.poster-styled {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 24px 16px;
+    text-align: center;
+    overflow: hidden;
+}
+.film-detail-poster.poster-styled::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.2;
+    z-index: 0;
+}
+.film-detail-poster.poster-styled::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    z-index: 1;
+}
+.film-detail-poster.poster-styled .poster-title {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    margin-bottom: 4px;
+}
+.film-detail-poster.poster-styled .poster-director {
+    position: relative;
+    z-index: 2;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+}
+.film-detail-poster.poster-styled .poster-icon {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0.06;
+    width: 100px;
+    height: 100px;
+    color: #fff;
+}
+.film-detail-poster.poster-alter-ego::before { background: linear-gradient(135deg, #1a1a2e, #c23636, #16213e); }
+.film-detail-poster.poster-mastermind::before { background: linear-gradient(135deg, #0f3443, #34e89e, #0f3443); }
+.film-detail-poster.poster-bojarski::before { background: linear-gradient(135deg, #2c3e50, #e74c3c, #3d5a80); }
+.film-detail-poster.poster-soundtrack::before { background: linear-gradient(135deg, #1a1a2e, #e8a838, #0d0d1a); }
