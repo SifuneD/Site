@@ -57,11 +57,11 @@
 }
 
 [data-theme="light"] .film-grain {
-    opacity: 0 !important;
+    opacity: 0.015;
 }
 
 [data-theme="light"] .cursor-glow {
-    display: none;
+    background: radial-gradient(circle, rgba(181, 46, 46, 0.06) 0%, transparent 70%);
 }
 
 [data-theme="light"] .navbar.scrolled {
@@ -88,14 +88,14 @@
 }
 
 [data-theme="light"] .hero-gradient {
-    background: linear-gradient(135deg,
-        rgba(245, 243, 239, 0.95) 0%,
-        rgba(181, 46, 46, 0.08) 50%,
-        rgba(245, 243, 239, 0.9) 100%) !important;
+    background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(181, 46, 46, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 20% 80%, rgba(181, 46, 46, 0.04) 0%, transparent 50%),
+        linear-gradient(180deg, var(--bg-primary) 0%, rgba(234, 231, 225, 0.8) 50%, var(--bg-primary) 100%);
 }
 
 [data-theme="light"] .film-strip {
-    opacity: 0.04;
+    opacity: 0.06;
 }
 
 [data-theme="light"] .film-card {
