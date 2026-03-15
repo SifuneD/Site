@@ -98,6 +98,10 @@
     opacity: 0.06;
 }
 
+[data-theme="light"] .mobile-nav {
+    background: rgba(245, 243, 239, 0.97);
+}
+
 [data-theme="light"] .film-card {
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
