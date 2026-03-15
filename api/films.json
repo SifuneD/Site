@@ -1,0 +1,125 @@
+{
+  "updatedAt": "2026-03-15",
+  "films": [
+    {
+      "id": "alter-ego",
+      "title": "Alter Ego",
+      "genre": "Comédie, Thriller",
+      "duration": "1h39",
+      "director": "Nicolas Charlet, Bruno Lavaine",
+      "badge": "VF",
+      "poster": "/posters/alter-ego.jpg",
+      "link": "/a-laffiche.html"
+    },
+    {
+      "id": "the-mastermind",
+      "title": "The Mastermind",
+      "genre": "Policier, Drame",
+      "duration": "1h50",
+      "director": "Kelly Reichardt",
+      "badge": "VOST",
+      "poster": "/posters/the-mastermind.jpg",
+      "link": "/a-laffiche.html"
+    },
+    {
+      "id": "affaire-bojarski",
+      "title": "L'Affaire Bojarski",
+      "genre": "Drame, Policier",
+      "duration": "2h08",
+      "director": "Jean-Paul Salomé",
+      "badge": "VF",
+      "poster": "/posters/affaire-bojarski.jpg",
+      "link": "/a-laffiche.html"
+    },
+    {
+      "id": "soundtrack-coup-etat",
+      "title": "Soundtrack to a Coup d'État",
+      "genre": "Documentaire",
+      "duration": "2h30",
+      "director": "Johan Grimonprez",
+      "badge": "VOST",
+      "poster": "/posters/soundtrack-coup-etat.jpg",
+      "link": "/a-laffiche.html"
+    },
+    {
+      "id": "marsupilami",
+      "title": "Marsupilami",
+      "genre": "Comédie, Aventure",
+      "duration": "1h39",
+      "director": null,
+      "badge": "VF",
+      "poster": "/posters/marsupilami.jpg",
+      "link": "/a-laffiche.html"
+    },
+    {
+      "id": "marty-supreme",
+      "title": "Marty Supreme",
+      "genre": "Drame",
+      "duration": "2h30",
+      "director": null,
+      "badge": "VOST",
+      "poster": "/posters/marty-supreme.jpg",
+      "link": "/a-laffiche.html"
+    },
+    {
+      "id": "flamant-rose",
+      "title": "Le Mystérieux regard du flamant rose",
+      "genre": "Drame",
+      "duration": "1h44",
+      "director": null,
+      "badge": "VOST",
+      "poster": "/posters/flamant-rose.jpg",
+      "link": "/a-laffiche.html"
+    },
+    {
+      "id": "les-dimanches",
+      "title": "Les Dimanches",
+      "genre": "Drame",
+      "duration": "1h58",
+      "director": null,
+      "badge": "VOST",
+      "poster": "/posters/les-dimanches.jpg",
+      "link": "/a-laffiche.html"
+    },
+    {
+      "id": "epic-elvis",
+      "title": "EPiC: Elvis Presley in Concert",
+      "genre": "Documentaire, Musical",
+      "duration": null,
+      "director": null,
+      "badge": "VOST",
+      "poster": "/posters/epic-elvis.jpg",
+      "link": "/a-laffiche.html"
+    },
+    {
+      "id": "linvasion",
+      "title": "L'Invasion",
+      "genre": "Documentaire",
+      "duration": null,
+      "director": null,
+      "badge": "VOST",
+      "poster": "/posters/invasion.jpg",
+      "link": "/a-laffiche.html"
+    },
+    {
+      "id": "a-fidai",
+      "title": "A Fidai",
+      "genre": "Documentaire",
+      "duration": null,
+      "director": null,
+      "badge": "VOST",
+      "poster": "/posters/a-fidai.jpg",
+      "link": "/a-laffiche.html"
+    },
+    {
+      "id": "peaches-goes-bananas",
+      "title": "Peaches Goes Bananas",
+      "genre": "Documentaire",
+      "duration": "1h13",
+      "director": null,
+      "badge": "VOST",
+      "poster": "/posters/peaches-goes-bananas.jpg",
+      "link": "/a-laffiche.html"
+    }
+  ]
+}

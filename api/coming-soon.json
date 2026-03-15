@@ -1,0 +1,45 @@
+{
+  "updatedAt": "2026-03-15",
+  "films": [
+    {
+      "id": "marsupilami",
+      "title": "Marsupilami",
+      "genre": "Comédie, Aventure",
+      "duration": "1h39",
+      "badge": "VF",
+      "poster": "/posters/marsupilami.jpg",
+      "releaseDate": null,
+      "link": "/prochainement.html"
+    },
+    {
+      "id": "marty-supreme",
+      "title": "Marty Supreme",
+      "genre": "Drame",
+      "duration": "2h30",
+      "badge": "VOST",
+      "poster": "/posters/marty-supreme.jpg",
+      "releaseDate": null,
+      "link": "/prochainement.html"
+    },
+    {
+      "id": "flamant-rose",
+      "title": "Le Mystérieux regard du flamant rose",
+      "genre": "Drame",
+      "duration": "1h44",
+      "badge": "VOST",
+      "poster": "/posters/flamant-rose.jpg",
+      "releaseDate": null,
+      "link": "/prochainement.html"
+    },
+    {
+      "id": "les-dimanches",
+      "title": "Les Dimanches",
+      "genre": "Drame",
+      "duration": "1h58",
+      "badge": "VOST",
+      "poster": "/posters/les-dimanches.jpg",
+      "releaseDate": null,
+      "link": "/prochainement.html"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "weekOf": "2026-03-09",
+  "updatedAt": "2026-03-15",
+  "today": "2026-03-15",
+  "todayScreenings": [
+    {
+      "filmId": "soundtrack-coup-etat",
+      "title": "Soundtrack to a Coup d'État",
+      "badge": "VOST",
+      "poster": "/posters/soundtrack-coup-etat.jpg",
+      "times": ["14:00"]
+    },
+    {
+      "filmId": "alter-ego",
+      "title": "Alter Ego",
+      "badge": "VF",
+      "poster": "/posters/alter-ego.jpg",
+      "times": ["17:00"]
+    },
+    {
+      "filmId": "the-mastermind",
+      "title": "The Mastermind",
+      "badge": "VOST",
+      "poster": "/posters/the-mastermind.jpg",
+      "times": ["19:00"]
+    },
+    {
+      "filmId": "affaire-bojarski",
+      "title": "L'Affaire Bojarski",
+      "badge": "VF",
+      "poster": "/posters/affaire-bojarski.jpg",
+      "times": []
+    }
+  ],
+  "weeklySchedule": [
+    {
+      "filmId": "alter-ego",
+      "title": "Alter Ego",
+      "badge": "VF",
+      "days": [
+        { "name": "Lun", "date": "09/03", "times": [] },
+        { "name": "Mar", "date": "10/03", "times": ["20:30"] },
+        { "name": "Mer", "date": "11/03", "times": ["14:00", "20:30"] },
+        { "name": "Jeu", "date": "12/03", "times": ["18:00"] },
+        { "name": "Ven", "date": "13/03", "times": ["20:30"] },
+        { "name": "Sam", "date": "14/03", "times": ["16:00"] },
+        { "name": "Dim", "date": "15/03", "times": ["17:00"] }
+      ]
+    },
+    {
+      "filmId": "the-mastermind",
+      "title": "The Mastermind",
+      "badge": "VOST",
+      "days": [
+        { "name": "Lun", "date": "09/03", "times": ["18:00"] },
+        { "name": "Mar", "date": "10/03", "times": [] },
+        { "name": "Mer", "date": "11/03", "times": ["18:00"] },
+        { "name": "Jeu", "date": "12/03", "times": ["20:30"] },
+        { "name": "Ven", "date": "13/03", "times": [] },
+        { "name": "Sam", "date": "14/03", "times": ["20:30"] },
+        { "name": "Dim", "date": "15/03", "times": ["19:00"] }
+      ]
+    },
+    {
+      "filmId": "affaire-bojarski",
+      "title": "L'Affaire Bojarski",
+      "badge": "VF",
+      "days": [
+        { "name": "Lun", "date": "09/03", "times": [] },
+        { "name": "Mar", "date": "10/03", "times": ["20:30"] },
+        { "name": "Mer", "date": "11/03", "times": ["16:00"] },
+        { "name": "Jeu", "date": "12/03", "times": [] },
+        { "name": "Ven", "date": "13/03", "times": ["18:00"] },
+        { "name": "Sam", "date": "14/03", "times": ["14:00"] },
+        { "name": "Dim", "date": "15/03", "times": [] }
+      ]
+    },
+    {
+      "filmId": "soundtrack-coup-etat",
+      "title": "Soundtrack to a Coup d'État",
+      "badge": "VOST",
+      "days": [
+        { "name": "Lun", "date": "09/03", "times": [] },
+        { "name": "Mar", "date": "10/03", "times": ["18:00"] },
+        { "name": "Mer", "date": "11/03", "times": [] },
+        { "name": "Jeu", "date": "12/03", "times": ["14:00"] },
+        { "name": "Ven", "date": "13/03", "times": ["14:00"] },
+        { "name": "Sam", "date": "14/03", "times": ["18:00"] },
+        { "name": "Dim", "date": "15/03", "times": ["14:00"] }
+      ]
+    }
+  ]
+}
