@@ -615,15 +615,18 @@ body:hover .cursor-glow {
 
 .film-poster {
     position: relative;
+    aspect-ratio: 2/3;
     overflow: hidden;
     background: var(--bg-card);
 }
 
 /* Film poster image */
 .film-poster-img {
-    display: block;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.4s var(--ease-out);
 }
 
