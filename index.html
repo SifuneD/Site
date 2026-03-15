@@ -48,6 +48,9 @@
                 <a href="infos-pratiques.html" class="nav-link">Infos pratiques</a>
                 <a href="scolaires.html" class="nav-link">Scolaires</a>
             </nav>
+            <button class="search-toggle" id="searchToggle" aria-label="Rechercher un film">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </button>
             <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                 <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -71,6 +74,20 @@
             <a href="scolaires.html" class="mobile-nav-link">Scolaires</a>
             <a href="a-laffiche.html" class="mobile-nav-link">Archives</a>
         </nav>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-overlay-inner">
+            <div class="search-box">
+                <svg class="search-box-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <input type="text" class="search-input" id="searchInput" placeholder="Rechercher un film..." autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="Fermer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
     </div>
 
     <!-- Hero Section -->
@@ -106,6 +123,77 @@
         <div class="hero-scroll-indicator">
             <div class="scroll-line"></div>
             <span>Découvrir</span>
+        </div>
+    </section>
+
+    <!-- Today's Screenings Section -->
+    <section class="section section-today" id="today">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Aujourd'hui &mdash; Samedi 15 mars</span>
+                <h2 class="section-title">Séances du jour</h2>
+                <p class="section-desc">Les films projetés aujourd'hui au Cinéma Alhambra.</p>
+            </div>
+            <div class="today-grid">
+                <a href="horaires.html" class="today-card reveal" style="--delay: 0">
+                    <div class="today-poster">
+                        <img src="posters/affaire-bojarski.jpg" alt="L'Affaire Bojarski" class="film-poster-img" loading="lazy">
+                    </div>
+                    <div class="today-info">
+                        <h3 class="today-title">L'Affaire Bojarski</h3>
+                        <p class="today-meta">Drame, Policier &bull; 2h08</p>
+                        <span class="film-badge vf">VF</span>
+                        <div class="today-times">
+                            <span class="today-time">14:00</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="horaires.html" class="today-card reveal" style="--delay: 1">
+                    <div class="today-poster">
+                        <img src="posters/alter-ego.jpg" alt="Alter Ego" class="film-poster-img" loading="lazy">
+                    </div>
+                    <div class="today-info">
+                        <h3 class="today-title">Alter Ego</h3>
+                        <p class="today-meta">Comédie, Thriller &bull; 1h39</p>
+                        <span class="film-badge vf">VF</span>
+                        <div class="today-times">
+                            <span class="today-time">16:00</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="horaires.html" class="today-card reveal" style="--delay: 2">
+                    <div class="today-poster">
+                        <img src="posters/soundtrack-coup-etat.jpg" alt="Soundtrack to a Coup d'État" class="film-poster-img" loading="lazy">
+                    </div>
+                    <div class="today-info">
+                        <h3 class="today-title">Soundtrack to a Coup d'État</h3>
+                        <p class="today-meta">Documentaire, Musique &bull; 2h30</p>
+                        <span class="film-badge vost">VOST</span>
+                        <div class="today-times">
+                            <span class="today-time">18:00</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="horaires.html" class="today-card reveal" style="--delay: 3">
+                    <div class="today-poster">
+                        <img src="posters/the-mastermind.jpg" alt="The Mastermind" class="film-poster-img" loading="lazy">
+                    </div>
+                    <div class="today-info">
+                        <h3 class="today-title">The Mastermind</h3>
+                        <p class="today-meta">Policier, Drame &bull; 1h50</p>
+                        <span class="film-badge vost">VOST</span>
+                        <div class="today-times">
+                            <span class="today-time">20:30</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="section-cta reveal">
+                <a href="horaires.html" class="btn btn-outline">
+                    Tous les horaires de la semaine
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
         </div>
     </section>
 

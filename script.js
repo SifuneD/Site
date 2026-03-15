@@ -15,6 +15,96 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Search ---
+    const films = [
+        { title: 'Alter Ego', meta: 'Comédie, Thriller \u2022 1h39', badge: 'VF', poster: 'posters/alter-ego.jpg' },
+        { title: 'The Mastermind', meta: 'Policier, Drame \u2022 1h50', badge: 'VOST', poster: 'posters/the-mastermind.jpg' },
+        { title: "L'Affaire Bojarski", meta: 'Drame, Policier \u2022 2h08', badge: 'VF', poster: 'posters/affaire-bojarski.jpg' },
+        { title: "Soundtrack to a Coup d'État", meta: 'Documentaire \u2022 2h30', badge: 'VOST', poster: 'posters/soundtrack-coup-etat.jpg' },
+        { title: 'Marsupilami', meta: 'Comédie, Aventure \u2022 1h39', badge: 'VF', poster: 'posters/marsupilami.jpg' },
+        { title: 'Marty Supreme', meta: 'Drame \u2022 2h30', badge: 'VOST', poster: 'posters/marty-supreme.jpg' },
+        { title: 'Le Mystérieux regard du flamant rose', meta: 'Drame \u2022 1h44', badge: 'VOST', poster: 'posters/flamant-rose.jpg' },
+        { title: 'Les Dimanches', meta: 'Drame \u2022 1h58', badge: 'VOST', poster: 'posters/les-dimanches.jpg' },
+        { title: 'EPiC: Elvis Presley in Concert', meta: 'Documentaire, Musical', badge: 'VOST', poster: 'posters/epic-elvis.jpg' },
+        { title: "L'Invasion", meta: 'Documentaire', badge: 'VOST', poster: 'posters/invasion.jpg' },
+        { title: 'A Fidai', meta: 'Documentaire', badge: 'VOST', poster: 'posters/a-fidai.jpg' },
+        { title: 'Peaches Goes Bananas', meta: 'Documentaire \u2022 1h13', badge: 'VOST', poster: 'posters/peaches-goes-bananas.jpg' },
+        { title: 'Sainte-Marie-aux-Mines', meta: 'Drame \u2022 1h26', badge: 'VF', poster: 'posters/sainte-marie-aux-mines.jpg' },
+        { title: 'Urchin', meta: 'Drame \u2022 1h39', badge: 'VOST', poster: 'posters/urchin.jpg' },
+        { title: 'Nuremberg', meta: 'Drame, Historique \u2022 2h05', badge: 'VOST', poster: 'posters/nuremberg.jpg' },
+        { title: 'Des nimbes au monde', meta: 'Documentaire', badge: 'VF', poster: 'posters/des-nimbes-au-monde.jpg' },
+        { title: 'Maigret et le mort amoureux', meta: 'Policier \u2022 1h20', badge: 'VF', poster: 'posters/maigret.jpg' },
+        { title: 'Tafiti', meta: 'Animation, Famille', badge: 'VF', poster: 'posters/tafiti.jpg' },
+        { title: 'Love on Trial', meta: 'Drame, Romance', badge: 'VOST', poster: 'posters/love-on-trial.jpg' },
+        { title: "L'Ombre d'un mensonge", meta: 'Drame \u2022 1h39', badge: 'VOST', poster: 'posters/ombre-mensonge.jpg' },
+    ];
+
+    const searchToggle = document.getElementById('searchToggle');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchInput = document.getElementById('searchInput');
+    const searchClose = document.getElementById('searchClose');
+    const searchResults = document.getElementById('searchResults');
+
+    function openSearch() {
+        if (!searchOverlay) return;
+        searchOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => searchInput && searchInput.focus(), 100);
+    }
+
+    function closeSearch() {
+        if (!searchOverlay) return;
+        searchOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+        if (searchInput) searchInput.value = '';
+        if (searchResults) searchResults.innerHTML = '';
+    }
+
+    if (searchToggle) searchToggle.addEventListener('click', openSearch);
+    if (searchClose) searchClose.addEventListener('click', closeSearch);
+    if (searchOverlay) {
+        searchOverlay.addEventListener('click', (e) => {
+            if (e.target === searchOverlay) closeSearch();
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchOverlay && searchOverlay.classList.contains('open')) {
+            closeSearch();
+        }
+    });
+
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.trim().toLowerCase();
+            if (!searchResults) return;
+
+            if (query.length < 2) {
+                searchResults.innerHTML = '';
+                return;
+            }
+
+            const matches = films.filter(f =>
+                f.title.toLowerCase().includes(query)
+            );
+
+            if (matches.length === 0) {
+                searchResults.innerHTML = '<div class="search-no-result">Aucun film trouvé</div>';
+                return;
+            }
+
+            searchResults.innerHTML = matches.map(f => `
+                <a href="a-laffiche.html" class="search-result">
+                    <img src="${f.poster}" alt="${f.title}" class="search-result-poster" loading="lazy">
+                    <div class="search-result-info">
+                        <div class="search-result-title">${f.title}</div>
+                        <div class="search-result-meta">${f.meta} &bull; ${f.badge}</div>
+                    </div>
+                </a>
+            `).join('');
+        });
+    }
+
     // --- Scroll Reveal ---
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
