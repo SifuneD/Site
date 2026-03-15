@@ -165,6 +165,10 @@ function FilmCard({
     )
 }
 
+/**
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
 export default function FilmsGrid(props: Props) {
     const { theme } = props
     const t = colors[theme]

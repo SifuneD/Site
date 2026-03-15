@@ -61,6 +61,10 @@ function ComingItem({ date, title, meta, t }: { date: string; title: string; met
     )
 }
 
+/**
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
 export default function ComingSoon(props: Props) {
     const t = colors[props.theme]
 

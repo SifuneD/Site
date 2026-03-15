@@ -16,6 +16,10 @@ interface Props {
     theme: "dark" | "light"
 }
 
+/**
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
 export default function Hero(props: Props) {
     const {
         badgeText,

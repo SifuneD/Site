@@ -29,6 +29,10 @@ interface Props {
     addressLine2: string
 }
 
+/**
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
 export default function About(props: Props) {
     const t = colors[props.theme]
 

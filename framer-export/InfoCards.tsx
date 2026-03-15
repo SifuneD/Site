@@ -66,6 +66,10 @@ function InfoCard({ title, text, detail, link, linkText, t, theme }: any) {
     )
 }
 
+/**
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
 export default function InfoCards(props: Props) {
     const t = colors[props.theme]
 

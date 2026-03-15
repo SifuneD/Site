@@ -65,6 +65,10 @@ function ServiceCard({ title, desc, link, t, theme }: { title: string; desc: str
     )
 }
 
+/**
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
 export default function Services(props: Props) {
     const t = colors[props.theme]
 

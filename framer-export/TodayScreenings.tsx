@@ -157,6 +157,10 @@ function FilmCard({
     )
 }
 
+/**
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
 export default function TodayScreenings(props: Props) {
     const { theme } = props
     const t = colors[theme]

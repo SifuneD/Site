@@ -12,6 +12,10 @@ interface Props {
     buttonText: string
 }
 
+/**
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
 export default function Newsletter(props: Props) {
     const t = colors[props.theme]
 

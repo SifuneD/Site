@@ -22,6 +22,10 @@ interface Props {
     link6Url: string
 }
 
+/**
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
 export default function Navbar(props: Props) {
     const t = colors[props.theme]
 

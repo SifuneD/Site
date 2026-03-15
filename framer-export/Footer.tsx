@@ -25,6 +25,10 @@ interface Props {
     partner2Url: string
 }
 
+/**
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
 export default function Footer(props: Props) {
     // Footer always uses dark colors
     const t = colors.dark
