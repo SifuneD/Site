@@ -39,6 +39,7 @@ Pour **chaque fichier `.tsx`** du dossier `framer-export/` :
 | Fichier | Composant | Description |
 |---------|-----------|-------------|
 | `tokens.ts` | — | Tokens de design (couleurs, fonts) |
+| `DataProvider.tsx` | DataProvider | **Connexion API JSON live** (données films/séances) |
 | `Navbar.tsx` | Navbar | Barre de navigation |
 | `Hero.tsx` | Hero | Section hero plein écran |
 | `TodayScreenings.tsx` | TodayScreenings | Séances du jour (4 films) |
@@ -107,6 +108,36 @@ Chaque composant expose des **Property Controls** dans le panneau de droite :
 | Titres display | Playfair Display | 700, 900 |
 | Headings | Space Grotesk | 500, 600, 700 |
 | Corps de texte | Inter | 300, 400, 500, 600 |
+
+---
+
+## Connexion à l'API de données (DataProvider)
+
+Le composant `DataProvider` connecte Framer à l'API JSON statique du site Alhambra.
+Cette API expose les données de la programmation en temps réel.
+
+### Endpoints disponibles
+
+| Endpoint | Contenu |
+|----------|---------|
+| `GET /api/films.json` | Tous les films à l'affiche (titre, genre, durée, badge VF/VOST, affiche) |
+| `GET /api/screenings.json` | Séances du jour + programme hebdomadaire |
+| `GET /api/coming-soon.json` | Films prochainement à l'affiche |
+
+### Configuration
+
+1. Déployer le site (GitHub Pages, Netlify, Vercel…)
+2. Dans le Property Panel de `DataProvider`, renseigner la **Base URL** :
+   ```
+   https://votre-domaine.com
+   ```
+3. Le composant affiche un panneau de diagnostic avec le statut de la connexion et un aperçu des données chargées
+4. Régler `Afficher debug` sur `Off` avant de publier en production
+
+### Mettre à jour les données
+
+Modifier les fichiers `api/*.json` dans le dépôt Git, puis re-déployer le site.
+Framer récupèrera automatiquement les nouvelles données au prochain chargement de la page.
 
 ---
 
