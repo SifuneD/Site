@@ -2,332 +2,586 @@ import React, { useEffect, useRef } from "react"
 import { addPropertyControls, ControlType } from "framer"
 
 const colors = {
-    dark: { bgPrimary: "#0a0a0f", bgCard: "#16161f", textPrimary: "#f0ece4", textSecondary: "#9a9aad", accent: "#c23636", accentGlow: "rgba(194,54,54,0.15)", border: "rgba(255,255,255,0.06)" },
-    light: { bgPrimary: "#f5f3ef", bgCard: "#ffffff", textPrimary: "#1a1a2e", textSecondary: "#555566", accent: "#b52e2e", accentGlow: "rgba(181,46,46,0.08)", border: "rgba(0,0,0,0.08)" },
+    dark: {
+        bgPrimary: "#0a0a0f",
+        bgCard: "#16161f",
+        bgCardHover: "#1c1c28",
+        textPrimary: "#f0ece4",
+        textSecondary: "#9a9aad",
+        textMuted: "#5e5e72",
+        accent: "#c23636",
+        accentLight: "#e04444",
+        accentGlow: "rgba(194,54,54,0.15)",
+        border: "rgba(255,255,255,0.06)",
+        borderHover: "rgba(255,255,255,0.12)",
+        cardShadow: "0 4px 24px rgba(0,0,0,0.4)",
+        cardHoverShadow: "0 12px 40px rgba(0,0,0,0.6)",
+    },
+    light: {
+        bgPrimary: "#f5f3ef",
+        bgCard: "#ffffff",
+        bgCardHover: "#f0ede8",
+        textPrimary: "#1a1a2e",
+        textSecondary: "#555566",
+        textMuted: "#8a8a9a",
+        accent: "#b52e2e",
+        accentLight: "#d03a3a",
+        accentGlow: "rgba(181,46,46,0.08)",
+        border: "rgba(0,0,0,0.08)",
+        borderHover: "rgba(0,0,0,0.15)",
+        cardShadow: "0 2px 12px rgba(0,0,0,0.06)",
+        cardHoverShadow: "0 8px 30px rgba(0,0,0,0.12)",
+    },
 }
-const fonts = { display: "'Playfair Display', Georgia, serif", body: "'Inter', -apple-system, sans-serif" }
+
+const fonts = {
+    display: "'Playfair Display', Georgia, serif",
+    body: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    heading: "'Space Grotesk', sans-serif",
+}
 
 const programs = [
     {
-        badge: "Primaire",
+        level: "Primaire",
         title: "École et cinéma",
-        features: ["3 films par an", "Ressources pédagogiques", "Formation enseignants"],
+        desc: "3 films par an sélectionnés pour les élèves du primaire, avec ressources pédagogiques et formation pour les enseignants.",
     },
     {
-        badge: "Collège",
+        level: "Collège",
         title: "Collège au cinéma",
-        features: ["Projections dédiées", "3 films par an", "Catalogue national"],
+        desc: "Projections dédiées aux collégiens, 3 films par an issus du catalogue national, accompagnés de documents pédagogiques.",
     },
     {
-        badge: "Lycée",
+        level: "Lycée",
         title: "Lycéens et apprentis au cinéma",
-        features: ["Dispositif régional", "3 films par an", "Documents + professionnels"],
+        desc: "Dispositif régional pour les lycéens, 3 films par an avec documents d'accompagnement et interventions de professionnels.",
     },
 ]
 
-const BookSVG = ({ color }: { color: string }) => (
-    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="20" y="15" width="80" height="95" rx="4" stroke={color} strokeWidth="2" fill="none" />
-        <rect x="28" y="15" width="4" height="95" fill={color} opacity="0.3" />
-        <line x1="40" y1="40" x2="85" y2="40" stroke={color} strokeWidth="1.5" opacity="0.5" />
-        <line x1="40" y1="52" x2="85" y2="52" stroke={color} strokeWidth="1.5" opacity="0.5" />
-        <line x1="40" y1="64" x2="70" y2="64" stroke={color} strokeWidth="1.5" opacity="0.5" />
-        <circle cx="62" cy="85" r="10" stroke={color} strokeWidth="1.5" opacity="0.4" />
-        <path d="M58 85 L62 80 L66 85 L62 90 Z" fill={color} opacity="0.3" />
-    </svg>
-)
+const icons = {
+    book: (color: string) => (
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.25">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </svg>
+    ),
+    users: (color: string) => (
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.25">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+    ),
+    film: (color: string) => (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+            <line x1="7" y1="2" x2="7" y2="22" />
+            <line x1="17" y1="2" x2="17" y2="22" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <line x1="2" y1="7" x2="7" y2="7" />
+            <line x1="2" y1="17" x2="7" y2="17" />
+            <line x1="17" y1="7" x2="22" y2="7" />
+            <line x1="17" y1="17" x2="22" y2="17" />
+        </svg>
+    ),
+}
 
-const UsersSVG = ({ color }: { color: string }) => (
-    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="45" cy="40" r="12" stroke={color} strokeWidth="2" fill="none" />
-        <path d="M25 80 C25 65 35 58 45 58 C55 58 65 65 65 80" stroke={color} strokeWidth="2" fill="none" />
-        <circle cx="75" cy="38" r="10" stroke={color} strokeWidth="1.5" opacity="0.6" fill="none" />
-        <path d="M60 76 C60 63 68 57 75 57 C82 57 90 63 90 76" stroke={color} strokeWidth="1.5" opacity="0.6" fill="none" />
-        <circle cx="60" cy="95" r="3" fill={color} opacity="0.3" />
-        <circle cx="50" cy="98" r="2" fill={color} opacity="0.2" />
-        <circle cx="70" cy="97" r="2.5" fill={color} opacity="0.25" />
-    </svg>
-)
+function getCss(t: typeof colors.dark) {
+    return `
+@keyframes alh-sch-fadeInUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-function SchoolPage(props) {
-    const {
-        theme = "dark",
-        pageTag = "Éducation à l'image",
-        title = "Scolaires & Centres de loisirs",
-        subtitle = "Découvrir le cinéma autrement avec vos élèves.",
-    } = props
+.alh-sch-root {
+    width: 100%;
+    min-height: 100vh;
+    background: ${t.bgPrimary};
+    color: ${t.textPrimary};
+    font-family: ${fonts.body};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
+.alh-sch-root *, .alh-sch-root *::before, .alh-sch-root *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.alh-sch-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px 100px;
+}
+
+/* --- Page Header --- */
+.alh-sch-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.alh-sch-reveal {
+    opacity: 0;
+    transform: translateY(32px);
+}
+
+.alh-sch-reveal.alh-sch-visible {
+    animation: alh-sch-fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.alh-sch-reveal-d1.alh-sch-visible { animation-delay: 0.1s; }
+.alh-sch-reveal-d2.alh-sch-visible { animation-delay: 0.2s; }
+.alh-sch-reveal-d3.alh-sch-visible { animation-delay: 0.3s; }
+.alh-sch-reveal-d4.alh-sch-visible { animation-delay: 0.4s; }
+.alh-sch-reveal-d5.alh-sch-visible { animation-delay: 0.5s; }
+.alh-sch-reveal-d6.alh-sch-visible { animation-delay: 0.6s; }
+.alh-sch-reveal-d7.alh-sch-visible { animation-delay: 0.7s; }
+
+.alh-sch-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: ${t.accent};
+    margin-bottom: 16px;
+    padding: 6px 16px;
+    border: 1px solid rgba(194,54,54,0.25);
+    border-radius: 100px;
+    background: rgba(194,54,54,0.06);
+    font-family: ${fonts.body};
+}
+
+.alh-sch-title {
+    font-family: ${fonts.display};
+    font-weight: 900;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    color: ${t.textPrimary};
+    margin-bottom: 16px;
+}
+
+.alh-sch-subtitle {
+    font-size: 1.05rem;
+    color: ${t.textSecondary};
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+    font-family: ${fonts.body};
+}
+
+/* --- Section Header --- */
+.alh-sch-section-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.alh-sch-section-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: ${t.accent};
+    margin-bottom: 12px;
+    font-family: ${fonts.body};
+}
+
+.alh-sch-section-title {
+    font-family: ${fonts.display};
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: ${t.textPrimary};
+    margin: 0 0 12px;
+}
+
+.alh-sch-section-desc {
+    font-size: 0.95rem;
+    color: ${t.textSecondary};
+    max-width: 550px;
+    margin: 0 auto;
+    font-family: ${fonts.body};
+    line-height: 1.6;
+}
+
+/* --- Content Block --- */
+.alh-sch-content-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.alh-sch-content-block.alh-sch-reversed {
+    direction: rtl;
+}
+
+.alh-sch-content-block.alh-sch-reversed > * {
+    direction: ltr;
+}
+
+.alh-sch-content-title {
+    font-family: ${fonts.display};
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: ${t.textPrimary};
+    margin: 0 0 20px;
+}
+
+.alh-sch-content-text {
+    font-size: 0.95rem;
+    color: ${t.textSecondary};
+    line-height: 1.8;
+    margin: 0 0 24px;
+    font-family: ${fonts.body};
+}
+
+.alh-sch-content-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.alh-sch-content-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: ${t.textSecondary};
+    font-family: ${fonts.body};
+    line-height: 1.6;
+}
+
+.alh-sch-content-list li::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: ${t.accent};
+    flex-shrink: 0;
+    margin-top: 7px;
+}
+
+.alh-sch-content-list strong {
+    color: ${t.textPrimary};
+    font-weight: 600;
+}
+
+.alh-sch-content-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ${t.bgCard};
+    border: 1px solid ${t.border};
+    border-radius: 20px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.alh-sch-content-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: ${fonts.body};
+    background: ${t.accent};
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s ease;
+}
+
+.alh-sch-content-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(194,54,54,0.3);
+}
+
+/* --- Programs Grid --- */
+.alh-sch-programs {
+    margin-bottom: 100px;
+}
+
+.alh-sch-programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.alh-sch-program-card {
+    padding: 36px 28px;
+    background: ${t.bgCard};
+    border: 1px solid ${t.border};
+    border-radius: 20px;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+    cursor: default;
+}
+
+.alh-sch-program-card:hover {
+    transform: translateY(-6px);
+    border-color: ${t.accent};
+    box-shadow: ${t.cardHoverShadow};
+}
+
+.alh-sch-program-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    background: ${t.accent};
+    padding: 5px 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-family: ${fonts.body};
+}
+
+.alh-sch-program-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: ${t.accentGlow};
+    margin-bottom: 20px;
+}
+
+.alh-sch-program-title {
+    font-family: ${fonts.display};
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: ${t.textPrimary};
+    margin: 0 0 12px;
+    line-height: 1.3;
+}
+
+.alh-sch-program-desc {
+    font-size: 0.9rem;
+    color: ${t.textSecondary};
+    line-height: 1.7;
+    margin: 0;
+    font-family: ${fonts.body};
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .alh-sch-programs-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .alh-sch-content-block {
+        gap: 48px;
+    }
+    .alh-sch-container {
+        padding: 60px 20px 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .alh-sch-programs-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .alh-sch-header {
+        margin-bottom: 48px;
+    }
+    .alh-sch-container {
+        padding: 48px 16px 64px;
+    }
+    .alh-sch-title {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+    }
+    .alh-sch-subtitle {
+        font-size: 0.95rem;
+    }
+    .alh-sch-content-block,
+    .alh-sch-content-block.alh-sch-reversed {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        direction: ltr;
+    }
+    .alh-sch-programs,
+    .alh-sch-content-block {
+        margin-bottom: 64px;
+    }
+    .alh-sch-program-card {
+        padding: 28px 24px;
+    }
+    .alh-sch-section-header {
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .alh-sch-container {
+        padding: 36px 12px 48px;
+    }
+    .alh-sch-title {
+        font-size: clamp(1.6rem, 8vw, 2rem);
+    }
+    .alh-sch-subtitle {
+        font-size: 0.88rem;
+    }
+    .alh-sch-program-card {
+        padding: 24px 20px;
+    }
+    .alh-sch-content-visual {
+        aspect-ratio: 3 / 2;
+    }
+}
+`
+}
+
+/**
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
+export default function SchoolPage(props) {
+    const { theme, pageTag, title, subtitle } = props
     const t = colors[theme] || colors.dark
-    const containerRef = useRef<HTMLDivElement>(null)
+    const sectionRef = useRef<HTMLElement>(null)
 
     useEffect(() => {
-        if (!containerRef.current) return
-        const els = containerRef.current.querySelectorAll(".alh-school-reveal")
+        const el = sectionRef.current
+        if (!el) return
+        const targets = el.querySelectorAll(".alh-sch-reveal")
         const observer = new IntersectionObserver(
             (entries) => {
-                entries.forEach((entry, i) => {
+                entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        const el = entry.target as HTMLElement
-                        const delay = parseInt(el.dataset.stagger || "0", 10)
-                        setTimeout(() => {
-                            el.style.opacity = "1"
-                            el.style.transform = "translateY(0)"
-                        }, delay)
-                        observer.unobserve(el)
+                        entry.target.classList.add("alh-sch-visible")
+                        observer.unobserve(entry.target)
                     }
                 })
             },
-            { threshold: 0.12 }
+            { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
         )
-        els.forEach((el) => observer.observe(el))
+        targets.forEach((t) => observer.observe(t))
         return () => observer.disconnect()
     }, [])
 
-    const revealStyle = (stagger = 0): React.CSSProperties => ({
-        opacity: 0,
-        transform: "translateY(32px)",
-        transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)",
-    })
-
     return (
-        <div ref={containerRef} style={{ width: "100%", minHeight: "100vh", backgroundColor: t.bgPrimary, fontFamily: fonts.body, color: t.textPrimary, overflowX: "hidden" }}>
-            <style>{`
-                .alh-school-card:hover {
-                    transform: translateY(-6px) !important;
-                    box-shadow: 0 16px 48px ${t.accentGlow} !important;
-                }
-                .alh-school-btn:hover {
-                    background: ${t.accent} !important;
-                    color: #fff !important;
-                }
-                @media (max-width: 1024px) {
-                    .alh-school-grid { grid-template-columns: 1fr 1fr !important; }
-                    .alh-school-content-row { flex-direction: column !important; }
-                    .alh-school-content-visual { width: 100% !important; justify-content: center !important; }
-                    .alh-school-content-text { width: 100% !important; }
-                }
-                @media (max-width: 768px) {
-                    .alh-school-grid { grid-template-columns: 1fr !important; }
-                    .alh-school-header-title { font-size: 2.4rem !important; }
-                    .alh-school-section-title { font-size: 2rem !important; }
-                }
-                @media (max-width: 480px) {
-                    .alh-school-header-title { font-size: 1.8rem !important; }
-                    .alh-school-section-title { font-size: 1.6rem !important; }
-                    .alh-school-wrapper { padding-left: 16px !important; padding-right: 16px !important; }
-                }
-            `}</style>
+        <section ref={sectionRef} className="alh-sch-root" style={{ background: t.bgPrimary, color: t.textPrimary }}>
+            <style>{getCss(t)}</style>
+            <div className="alh-sch-container">
 
-            {/* ── Page Header ── */}
-            <div style={{ padding: "120px 0 60px", textAlign: "center" }}>
-                <div className="alh-school-wrapper" style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px" }}>
-                    <div className="alh-school-reveal" style={revealStyle()} data-stagger="0">
-                        <span style={{
-                            display: "inline-block",
-                            fontSize: 12,
-                            fontWeight: 600,
-                            letterSpacing: "0.12em",
-                            textTransform: "uppercase",
-                            color: t.accent,
-                            background: t.accentGlow,
-                            padding: "6px 16px",
-                            borderRadius: 40,
-                            marginBottom: 20,
-                        }}>
-                            {pageTag}
-                        </span>
-                    </div>
-                    <h1 className="alh-school-reveal alh-school-header-title" style={{ ...revealStyle(), fontFamily: fonts.display, fontSize: "3.2rem", fontWeight: 700, lineHeight: 1.15, margin: "0 0 16px" }} data-stagger="80">
-                        {title}
-                    </h1>
-                    <p className="alh-school-reveal" style={{ ...revealStyle(), fontSize: 18, color: t.textSecondary, margin: 0, lineHeight: 1.6 }} data-stagger="160">
-                        {subtitle}
-                    </p>
+                {/* Page Header */}
+                <div className="alh-sch-header alh-sch-reveal">
+                    <span className="alh-sch-tag">{pageTag}</span>
+                    <h1 className="alh-sch-title">{title}</h1>
+                    <p className="alh-sch-subtitle">{subtitle}</p>
                 </div>
-            </div>
 
-            {/* ── Intro Content Block ── */}
-            <div className="alh-school-wrapper" style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
-                <div className="alh-school-reveal alh-school-content-row" style={{ ...revealStyle(), display: "flex", gap: 48, alignItems: "center" }} data-stagger="200">
-                    <div className="alh-school-content-text" style={{ flex: 1 }}>
-                        <h2 style={{ fontFamily: fonts.display, fontSize: "1.8rem", fontWeight: 700, margin: "0 0 20px", lineHeight: 1.3 }}>
-                            Le cinéma, outil pédagogique
-                        </h2>
-                        <p style={{ fontSize: 15, lineHeight: 1.75, color: t.textSecondary, margin: "0 0 16px" }}>
-                            Labellisé <strong style={{ color: t.textPrimary }}>Jeune Public par le CNC</strong>, notre cinéma accueille les scolaires tout au long de l'année pour des projections adaptées à chaque niveau. De la maternelle au lycée, nous proposons un accompagnement pédagogique complet pour faire découvrir le 7e art à vos élèves.
+                {/* Section 1 - Intro Content Block */}
+                <div className="alh-sch-content-block alh-sch-reveal alh-sch-reveal-d1">
+                    <div>
+                        <h2 className="alh-sch-content-title">Le cinéma, outil pédagogique</h2>
+                        <p className="alh-sch-content-text">
+                            Le Cinéma Alhambra, labellisé Jeune Public, accueille les scolaires toute l'année
+                            pour des séances adaptées et accompagnées. Un tarif préférentiel de 5€ par élève
+                            est proposé, avec ouverture des portes 20 minutes avant la projection.
                         </p>
-                        <p style={{ fontSize: 15, lineHeight: 1.75, color: t.textSecondary, margin: 0 }}>
-                            Tarif scolaire : <strong style={{ color: t.accent }}>5&nbsp;€ par élève</strong> — séances sur mesure, accueil personnalisé (prévoir 20 minutes avant la projection).
-                        </p>
+                        <ul className="alh-sch-content-list">
+                            <li><span><strong>Label Jeune Public :</strong> Une programmation exigeante et adaptée aux jeunes spectateurs.</span></li>
+                            <li><span><strong>Accompagnement :</strong> Dossiers pédagogiques et interventions en classe possibles.</span></li>
+                            <li><span><strong>Tarif scolaire :</strong> 5€ par élève, groupe de 20 minimum.</span></li>
+                        </ul>
                     </div>
-                    <div className="alh-school-content-visual" style={{ width: 200, display: "flex", justifyContent: "flex-end", flexShrink: 0 }}>
-                        <div style={{
-                            width: 180,
-                            height: 180,
-                            borderRadius: 20,
-                            background: t.accentGlow,
-                            border: `1px solid ${t.border}`,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                        }}>
-                            <BookSVG color={t.accent} />
-                        </div>
+                    <div className="alh-sch-content-visual">
+                        {icons.book(t.textMuted)}
                     </div>
                 </div>
-            </div>
 
-            {/* ── Nos programmes ── */}
-            <div style={{ padding: "80px 0" }}>
-                <div className="alh-school-wrapper" style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
-                    <div style={{ textAlign: "center", marginBottom: 56 }}>
-                        <div className="alh-school-reveal" style={revealStyle()} data-stagger="0">
-                            <span style={{
-                                display: "inline-block",
-                                fontSize: 12,
-                                fontWeight: 600,
-                                letterSpacing: "0.12em",
-                                textTransform: "uppercase",
-                                color: t.accent,
-                                background: t.accentGlow,
-                                padding: "6px 16px",
-                                borderRadius: 40,
-                                marginBottom: 16,
-                            }}>
-                                Dispositifs nationaux
-                            </span>
-                        </div>
-                        <h2 className="alh-school-reveal alh-school-section-title" style={{ ...revealStyle(), fontFamily: fonts.display, fontSize: "2.6rem", fontWeight: 700, lineHeight: 1.15, margin: "0 0 14px" }} data-stagger="80">
-                            Nos programmes
-                        </h2>
-                        <p className="alh-school-reveal" style={{ ...revealStyle(), fontSize: 16, color: t.textSecondary, margin: 0, maxWidth: 560, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }} data-stagger="160">
+                {/* Section 2 - Programs Grid */}
+                <div className="alh-sch-programs">
+                    <div className="alh-sch-section-header alh-sch-reveal alh-sch-reveal-d2">
+                        <span className="alh-sch-section-tag">Dispositifs nationaux</span>
+                        <h2 className="alh-sch-section-title">Nos programmes</h2>
+                        <p className="alh-sch-section-desc">
                             Trois dispositifs soutenus par le CNC et l'Éducation nationale.
                         </p>
                     </div>
 
-                    {/* Program Cards Grid */}
-                    <div className="alh-school-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+                    <div className="alh-sch-programs-grid">
                         {programs.map((prog, i) => (
                             <div
                                 key={i}
-                                className="alh-school-reveal alh-school-card"
-                                data-stagger={String(240 + i * 100)}
-                                style={{
-                                    ...revealStyle(),
-                                    backgroundColor: t.bgCard,
-                                    borderRadius: 16,
-                                    border: `1px solid ${t.border}`,
-                                    padding: 32,
-                                    transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease",
-                                    cursor: "default",
-                                }}
+                                className={`alh-sch-program-card alh-sch-reveal alh-sch-reveal-d${i + 3}`}
                             >
-                                <span style={{
-                                    display: "inline-block",
-                                    fontSize: 11,
-                                    fontWeight: 700,
-                                    letterSpacing: "0.08em",
-                                    textTransform: "uppercase",
-                                    color: t.accent,
-                                    background: t.accentGlow,
-                                    padding: "5px 12px",
-                                    borderRadius: 6,
-                                    marginBottom: 18,
-                                }}>
-                                    {prog.badge}
-                                </span>
-                                <h3 style={{ fontFamily: fonts.display, fontSize: "1.35rem", fontWeight: 700, margin: "0 0 20px", lineHeight: 1.3 }}>
-                                    {prog.title}
-                                </h3>
-                                <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                                    {prog.features.map((feat, j) => (
-                                        <li key={j} style={{ fontSize: 14, color: t.textSecondary, display: "flex", alignItems: "center", gap: 10 }}>
-                                            <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: t.accent, flexShrink: 0 }} />
-                                            {feat}
-                                        </li>
-                                    ))}
-                                </ul>
+                                <span className="alh-sch-program-badge">{prog.level}</span>
+                                <div className="alh-sch-program-icon">
+                                    {icons.film(t.accent)}
+                                </div>
+                                <h3 className="alh-sch-program-title">{prog.title}</h3>
+                                <p className="alh-sch-program-desc">{prog.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
-            </div>
 
-            {/* ── Centres de loisirs ── */}
-            <div className="alh-school-wrapper" style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 100px" }}>
-                <div className="alh-school-reveal alh-school-content-row" style={{ ...revealStyle(), display: "flex", flexDirection: "row-reverse", gap: 48, alignItems: "center" }} data-stagger="300">
-                    <div className="alh-school-content-text" style={{ flex: 1 }}>
-                        <h2 style={{ fontFamily: fonts.display, fontSize: "1.8rem", fontWeight: 700, margin: "0 0 20px", lineHeight: 1.3 }}>
-                            Centres de loisirs
-                        </h2>
-                        <p style={{ fontSize: 15, lineHeight: 1.75, color: t.textSecondary, margin: "0 0 16px" }}>
-                            Nous accueillons également les centres de loisirs et structures périscolaires pour des séances adaptées aux plus jeunes. Profitez d'un <strong style={{ color: t.textPrimary }}>tarif préférentiel</strong> pour vos groupes et d'un accompagnement sur mesure.
+                {/* Section 3 - Centres de loisirs (reversed) */}
+                <div className="alh-sch-content-block alh-sch-reversed alh-sch-reveal alh-sch-reveal-d6">
+                    <div>
+                        <h2 className="alh-sch-content-title">Centres de loisirs</h2>
+                        <p className="alh-sch-content-text">
+                            Le Cinéma Alhambra accueille également les centres de loisirs avec un tarif
+                            préférentiel et une programmation adaptée aux différentes tranches d'âge.
+                            Contactez-nous pour organiser votre venue.
                         </p>
-                        <p style={{ fontSize: 15, lineHeight: 1.75, color: t.textSecondary, margin: "0 0 28px" }}>
-                            Contactez-nous au <strong style={{ color: t.accent }}>03 21 17 73 33</strong> pour organiser votre prochaine sortie cinéma.
-                        </p>
-                        <a
-                            href="#tarifs"
-                            className="alh-school-btn"
-                            style={{
-                                display: "inline-block",
-                                fontSize: 14,
-                                fontWeight: 600,
-                                color: t.accent,
-                                border: `1.5px solid ${t.accent}`,
-                                borderRadius: 10,
-                                padding: "12px 28px",
-                                textDecoration: "none",
-                                transition: "background 0.3s ease, color 0.3s ease",
-                                background: "transparent",
-                                cursor: "pointer",
-                            }}
-                        >
+                        <ul className="alh-sch-content-list">
+                            <li><span><strong>Tarif préférentiel :</strong> Conditions avantageuses pour les groupes.</span></li>
+                            <li><span><strong>Programmation adaptée :</strong> Choix de films selon l'âge des enfants.</span></li>
+                            <li><span><strong>Contact :</strong> 03 21 17 73 33 pour organiser votre séance.</span></li>
+                        </ul>
+                        <a href="/infos-pratiques" className="alh-sch-content-cta">
                             Voir les tarifs
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
                         </a>
                     </div>
-                    <div className="alh-school-content-visual" style={{ width: 200, display: "flex", justifyContent: "flex-start", flexShrink: 0 }}>
-                        <div style={{
-                            width: 180,
-                            height: 180,
-                            borderRadius: 20,
-                            background: t.accentGlow,
-                            border: `1px solid ${t.border}`,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                        }}>
-                            <UsersSVG color={t.accent} />
-                        </div>
+                    <div className="alh-sch-content-visual">
+                        {icons.users(t.textMuted)}
                     </div>
                 </div>
+
             </div>
-        </div>
+        </section>
     )
+}
+
+SchoolPage.defaultProps = {
+    theme: "dark",
+    pageTag: "Éducation à l'image",
+    title: "Scolaires & Centres de loisirs",
+    subtitle: "Découvrir le cinéma autrement avec vos élèves.",
 }
 
 addPropertyControls(SchoolPage, {
     theme: {
         type: ControlType.Enum,
-        title: "Theme",
+        title: "Thème",
         options: ["dark", "light"],
-        defaultValue: "dark",
+        optionTitles: ["Sombre", "Clair"],
     },
-    pageTag: {
-        type: ControlType.String,
-        title: "Page Tag",
-        defaultValue: "Éducation à l'image",
-    },
-    title: {
-        type: ControlType.String,
-        title: "Title",
-        defaultValue: "Scolaires & Centres de loisirs",
-    },
-    subtitle: {
-        type: ControlType.String,
-        title: "Subtitle",
-        defaultValue: "Découvrir le cinéma autrement avec vos élèves.",
-    },
+    pageTag: { type: ControlType.String, title: "Tag page" },
+    title: { type: ControlType.String, title: "Titre" },
+    subtitle: { type: ControlType.String, title: "Sous-titre" },
 })
-
-export default SchoolPage
