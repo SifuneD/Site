@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { addPropertyControls, ControlType } from "framer"
 
 const colors = {
@@ -408,10 +408,123 @@ function getCssString(t: typeof colors.dark) {
     animation: alh-hero-scroll-pulse 2s ease-in-out infinite;
 }
 
+/* --- Burger Button --- */
+.alh-hero-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: 1px solid ${t.border};
+    border-radius: 8px;
+    cursor: pointer;
+    gap: 5px;
+    padding: 0;
+    z-index: 1001;
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+.alh-hero-burger:hover {
+    border-color: ${t.accent};
+}
+.alh-hero-burger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: ${t.textPrimary};
+    border-radius: 2px;
+    transition: transform 0.35s ease, opacity 0.25s ease, background 0.3s ease;
+    transform-origin: center;
+}
+.alh-hero-burger.alh-hero-burger-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    background: ${t.accent};
+}
+.alh-hero-burger.alh-hero-burger-open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.alh-hero-burger.alh-hero-burger-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    background: ${t.accent};
+}
+
+/* --- Mobile Overlay --- */
+.alh-hero-mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: ${t.navBg};
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    z-index: 9;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.alh-hero-mobile-overlay.alh-hero-mobile-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+.alh-hero-mobile-link {
+    font-family: ${fonts.display};
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: ${t.textPrimary};
+    text-decoration: none;
+    padding: 16px 32px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: color 0.3s ease, opacity 0.45s ease, transform 0.45s ease;
+}
+.alh-hero-mobile-overlay.alh-hero-mobile-open .alh-hero-mobile-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+.alh-hero-mobile-link:hover {
+    color: ${t.accent};
+}
+.alh-hero-mobile-link::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: ${t.accent};
+    transition: width 0.3s ease;
+}
+.alh-hero-mobile-link:hover::after {
+    width: 40%;
+}
+.alh-hero-mobile-link:nth-child(1) { transition-delay: 0.08s; }
+.alh-hero-mobile-link:nth-child(2) { transition-delay: 0.14s; }
+.alh-hero-mobile-link:nth-child(3) { transition-delay: 0.20s; }
+.alh-hero-mobile-link:nth-child(4) { transition-delay: 0.26s; }
+.alh-hero-mobile-link:nth-child(5) { transition-delay: 0.32s; }
+.alh-hero-mobile-link:nth-child(6) { transition-delay: 0.38s; }
+
 /* --- Media Queries --- */
 @media (max-width: 1024px) {
     .alh-hero-nav {
         display: none;
+    }
+    .alh-hero-burger {
+        display: flex;
+    }
+    .alh-hero-mobile-overlay {
+        display: flex;
     }
 }
 
@@ -519,8 +632,19 @@ export default function Hero(props) {
         secondaryBtnLink,
     } = props
 
+    const [menuOpen, setMenuOpen] = useState(false)
     const t = colors[theme] || colors.dark
     const contentRef = React.useRef<HTMLDivElement>(null)
+
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = ""
+        }
+        return () => { document.body.style.overflow = "" }
+    }, [menuOpen])
 
     React.useEffect(() => {
         const el = contentRef.current
@@ -653,8 +777,34 @@ export default function Hero(props) {
                             </a>
                         ))}
                     </nav>
+
+                    {/* Burger button */}
+                    <button
+                        className={`alh-hero-burger${menuOpen ? " alh-hero-burger-open" : ""}`}
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                        aria-expanded={menuOpen}
+                    >
+                        <span />
+                        <span />
+                        <span />
+                    </button>
                 </div>
             </header>
+
+            {/* Mobile menu overlay */}
+            <div className={`alh-hero-mobile-overlay${menuOpen ? " alh-hero-mobile-open" : ""}`}>
+                {links.map((link, i) => (
+                    <a
+                        key={i}
+                        href={link.url}
+                        className="alh-hero-mobile-link"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        {link.text}
+                    </a>
+                ))}
+            </div>
 
             {/* Background */}
             <div className="alh-hero-bg">
