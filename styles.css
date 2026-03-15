@@ -599,7 +599,7 @@ body:hover .cursor-glow {
 
 .film-card {
     display: block;
-    border-radius: 16px;
+    border-radius: 0 0 16px 16px;
     overflow: hidden;
     background: var(--bg-card);
     border: 1px solid var(--border);
