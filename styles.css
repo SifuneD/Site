@@ -36,6 +36,153 @@
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
+/* --- Light Mode --- */
+[data-theme="light"] {
+    --bg-primary: #f5f3ef;
+    --bg-secondary: #eae7e1;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f0ede8;
+
+    --text-primary: #1a1a2e;
+    --text-secondary: #555566;
+    --text-muted: #8a8a9a;
+
+    --accent: #b52e2e;
+    --accent-light: #d03a3a;
+    --accent-dark: #8c2222;
+    --accent-glow: rgba(181, 46, 46, 0.08);
+
+    --border: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .film-grain {
+    opacity: 0 !important;
+}
+
+[data-theme="light"] .cursor-glow {
+    display: none;
+}
+
+[data-theme="light"] .navbar.scrolled {
+    background: rgba(245, 243, 239, 0.92);
+}
+
+[data-theme="light"] .btn-outline {
+    border-color: rgba(0, 0, 0, 0.15);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .btn-outline:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="light"] .btn-secondary {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .hero-gradient {
+    background: linear-gradient(135deg,
+        rgba(245, 243, 239, 0.95) 0%,
+        rgba(181, 46, 46, 0.08) 50%,
+        rgba(245, 243, 239, 0.9) 100%) !important;
+}
+
+[data-theme="light"] .film-strip {
+    opacity: 0.04;
+}
+
+[data-theme="light"] .film-card {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .film-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .service-card {
+    background: var(--bg-card);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .newsletter-card {
+    background: var(--bg-card);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .info-card {
+    background: var(--bg-card);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .film-badge.vost {
+    background: rgba(80, 80, 220, 0.1);
+    color: #5555cc;
+}
+
+[data-theme="light"] .footer {
+    background: #1a1a2e;
+    color: #f0ece4;
+}
+
+[data-theme="light"] .footer a {
+    color: #f0ece4;
+}
+
+[data-theme="light"] .footer .logo-sub,
+[data-theme="light"] .footer-desc,
+[data-theme="light"] .footer-bottom {
+    color: #9a9aad;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+    background: var(--accent-glow);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover svg {
+    transform: rotate(15deg);
+}
+
+.theme-toggle .icon-moon,
+[data-theme="light"] .theme-toggle .icon-sun {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle .icon-moon {
+    display: block;
+}
+
 /* --- Reset & Base --- */
 *, *::before, *::after {
     margin: 0;
@@ -56,6 +203,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
