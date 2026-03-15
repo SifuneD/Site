@@ -1705,3 +1705,47 @@ body:hover .cursor-glow {
 .film-detail-poster.poster-mastermind::before { background: linear-gradient(135deg, #0f3443, #34e89e, #0f3443); }
 .film-detail-poster.poster-bojarski::before { background: linear-gradient(135deg, #2c3e50, #e74c3c, #3d5a80); }
 .film-detail-poster.poster-soundtrack::before { background: linear-gradient(135deg, #1a1a2e, #e8a838, #0d0d1a); }
+
+/* --- Wide Container for 5-column grid --- */
+.container-wide {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- 5-Column Affiche Grid --- */
+.affiche-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* Additional poster gradients for new films */
+.poster-marsupilami::before { background: linear-gradient(135deg, #2d6a4f, #95d5b2, #1b4332); }
+.poster-marty::before { background: linear-gradient(135deg, #1a1a2e, #6c63ff, #2d2b55); }
+.poster-flamant::before { background: linear-gradient(135deg, #5c2d91, #e88bb3, #2a1052); }
+.poster-dimanches::before { background: linear-gradient(135deg, #264653, #2a9d8f, #1a3040); }
+.poster-epic::before { background: linear-gradient(135deg, #1a1a2e, #d4af37, #2c1810); }
+.poster-invasion::before { background: linear-gradient(135deg, #1c1c1c, #555555, #0a0a0a); }
+.poster-fidai::before { background: linear-gradient(135deg, #2c3e50, #c0392b, #1a252f); }
+.poster-peaches::before { background: linear-gradient(135deg, #e91e63, #ff9800, #9c27b0); }
+.poster-saintemarie::before { background: linear-gradient(135deg, #1b5e20, #4caf50, #0d3311); }
+.poster-urchin::before { background: linear-gradient(135deg, #263238, #78909c, #1a2327); }
+.poster-nuremberg::before { background: linear-gradient(135deg, #3e2723, #8d6e63, #1b1210); }
+.poster-nimbes::before { background: linear-gradient(135deg, #b71c1c, #ef5350, #4a0e0e); }
+.poster-maigret::before { background: linear-gradient(135deg, #1a237e, #5c6bc0, #0d1247); }
+.poster-tafiti::before { background: linear-gradient(135deg, #f57f17, #ffb74d, #e65100); }
+.poster-lovetrial::before { background: linear-gradient(135deg, #880e4f, #f06292, #4a0728); }
+.poster-ombre::before { background: linear-gradient(135deg, #1a1a2e, #607d8b, #0a0a14); }
+
+/* Responsive: affiche-grid */
+@media (max-width: 1200px) {
+    .affiche-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 900px) {
+    .affiche-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+    .affiche-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
